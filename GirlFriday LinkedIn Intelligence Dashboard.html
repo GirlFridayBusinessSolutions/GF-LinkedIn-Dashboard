@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<!-- saved from url=(0062)file:///C:/Users/amy/Downloads/gf-linkedin-bigdaddy%20(2).html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GirlFriday LinkedIn Intelligence Dashboard</title>
+<link href="./GirlFriday LinkedIn Intelligence Dashboard_files/css2" rel="stylesheet">
+<script src="./GirlFriday LinkedIn Intelligence Dashboard_files/chart.umd.min.js.download"></script>
+<style>
+:root{--teal:#065762;--teal-l:#2a8fa4;--teal-d:#033d47;--teal-p:#e6f3f6;--mag:#cc007e;--mag-l:#f0338a;--mag-p:#fce8f3;--cream:#faf8f5;--char:#1c1c1c;--gold:#c8ac30;--gold-p:#fdf8e6;--grn:#1a7a4a;--grn-p:#e6f5ee;--bdr:#e5e1db;--gm:#525252;--gl:#e7e9ec;--wh:#fefefe;--sh:0 2px 12px rgba(6,87,98,.10);}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--cream);font-family:'Montserrat',sans-serif;color:var(--char);font-size:13px;line-height:1.6;}
+.hdr{background:var(--teal-d);padding:26px 40px 20px;display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.hdr h1{font-family:'Cormorant Garamond',serif;font-size:27px;font-weight:700;color:var(--wh);line-height:1.2;}
+.hdr .tag{font-size:11px;color:var(--gold);letter-spacing:2px;text-transform:uppercase;margin-top:4px;font-weight:600;}
+.hdr-meta{text-align:right;color:rgba(255,255,255,.7);font-size:11px;line-height:1.9;}.hdr-meta strong{color:var(--wh);}
+.alert{background:linear-gradient(135deg,var(--teal),var(--teal-l));color:var(--wh);padding:13px 40px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
+.alert .bdg{background:var(--gold);color:var(--char);font-weight:800;font-size:10px;padding:3px 10px;border-radius:20px;letter-spacing:1px;text-transform:uppercase;white-space:nowrap;}
+.alert p{font-size:12px;font-weight:500;}.alert strong{color:var(--gold);}
+.aflag{background:var(--mag-p);border-left:4px solid var(--mag);padding:11px 40px;font-size:12px;}
+.aflag strong{color:var(--mag);}
+.nav{background:var(--teal-d);padding:0 32px;display:flex;position:sticky;top:0;z-index:100;box-shadow:0 4px 16px rgba(3,61,71,.35);overflow-x:auto;gap:4px;}
+.tb{background:rgba(255,255,255,0.07);border:none;cursor:pointer;padding:16px 22px;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;color:rgba(255,255,255,0.65);border-bottom:3px solid transparent;margin-bottom:0;transition:all .2s;white-space:nowrap;letter-spacing:0.5px;border-radius:6px 6px 0 0;}
+.tb:hover{background:rgba(255,255,255,0.13);color:var(--wh);}.tb.active{background:var(--wh);color:var(--teal-d);border-bottom-color:var(--gold);border-bottom-color:var(--teal);}
+.pnl{display:none;padding:30px 40px 60px;}.pnl.active{display:block;}
+.sh{display:flex;align-items:baseline;gap:12px;margin-bottom:18px;padding-bottom:9px;border-bottom:2px solid var(--teal-p);}
+.sh h2{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;color:var(--teal-d);}
+.sh .per{font-size:11px;color:var(--gm);font-weight:500;letter-spacing:1px;}
+.kg{display:grid;grid-template-columns:repeat(auto-fit,minmax(148px,1fr));gap:14px;margin-bottom:22px;}
+.kc{background:var(--wh);border-radius:10px;padding:18px 16px;box-shadow:var(--sh);border:1px solid var(--bdr);transition:transform .15s;}
+.kc:hover{transform:translateY(-2px);}
+.kc.hl{border-top:3px solid var(--mag);}.kc.tl{border-top:3px solid var(--teal-l);}.kc.gl{border-top:3px solid var(--gold);}
+.kl{font-size:10px;font-weight:700;color:var(--gm);text-transform:uppercase;letter-spacing:1.2px;margin-bottom:7px;}
+.kv{font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:700;color:var(--teal-d);line-height:1;}
+.kv.mag{color:var(--mag);}.kv.gld{color:var(--gold);}
+.ks{font-size:11px;color:var(--gm);margin-top:5px;}.ks strong{color:var(--teal);}
+.tc{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-bottom:22px;}
+.thr{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;margin-bottom:22px;}
+@media(max-width:900px){.tc,.thr{grid-template-columns:1fr;}}
+.cd{background:var(--wh);border-radius:10px;padding:20px;box-shadow:var(--sh);border:1px solid var(--bdr);}
+.ct{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--teal);margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+.ct::before{content:'';display:block;width:3px;height:15px;background:var(--teal);border-radius:2px;}
+.cw{position:relative;height:195px;}
+.ib{background:var(--teal-p);border-left:3px solid var(--teal);border-radius:0 7px 7px 0;padding:11px 14px;margin-top:13px;font-size:12px;line-height:1.7;color:var(--teal-d);}
+.ib.mag{background:var(--mag-p);border-left-color:var(--mag);color:var(--char);}
+.ib.gld{background:var(--gold-p);border-left-color:var(--gold);color:var(--char);}
+.db{margin-bottom:10px;}.dl{display:flex;justify-content:space-between;font-size:12px;margin-bottom:3px;}.dl span:last-child{font-weight:700;color:var(--teal-d);}
+.dbb{background:var(--gl);border-radius:4px;height:7px;}.dbr{height:7px;border-radius:4px;background:linear-gradient(90deg,var(--teal),var(--teal-l));}
+.dbr.mag{background:linear-gradient(90deg,var(--mag),var(--mag-l));}.dbr.gld{background:linear-gradient(90deg,#8a7010,var(--gold));}
+.dt{width:100%;border-collapse:collapse;font-size:12px;}
+.dt th{background:var(--teal-d);color:var(--wh);padding:9px 11px;text-align:left;font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;}
+.dt td{padding:8px 11px;border-bottom:1px solid var(--bdr);vertical-align:top;}
+.dt tr:nth-child(even) td{background:rgba(6,87,98,.03);}
+.dt tr:hover td{background:var(--teal-p);}
+.dt tr.hlr td{background:var(--teal-p);font-weight:700;}
+.gb{display:inline-flex;width:27px;height:27px;border-radius:50%;align-items:center;justify-content:center;font-weight:800;font-size:10px;flex-shrink:0;}
+.gap{background:var(--mag);color:var(--wh);}.ga{background:var(--teal);color:var(--wh);}
+.gbp{background:var(--teal-l);color:var(--wh);}.gb2{background:#4a9db5;color:var(--wh);}
+.gc{background:var(--gold);color:var(--char);}.gd{background:#c0c0c0;color:var(--char);}
+.otl{color:var(--mag);font-weight:700;font-size:10px;margin-left:3px;}
+.fb{background:linear-gradient(135deg,var(--teal-d),var(--teal));border-radius:12px;padding:26px;color:var(--wh);margin-bottom:22px;}
+.ft{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:700;margin-bottom:18px;color:var(--gold);}
+.fs{display:flex;gap:13px;align-items:flex-start;margin-bottom:11px;}
+.fn{background:var(--gold);color:var(--char);width:25px;height:25px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:12px;flex-shrink:0;}
+.fc{font-size:12px;line-height:1.7;}.fc strong{color:var(--gold);}
+.ah{background:#fff3e0;border-left:3px solid #e65100;padding:5px 9px;border-radius:0 4px 4px 0;margin-bottom:3px;font-size:12px;line-height:1.6;}
+.ap{background:#e8f5e9;border-left:3px solid var(--grn);padding:5px 9px;border-radius:0 4px 4px 0;margin-bottom:3px;font-size:12px;line-height:1.6;}
+.ab2{background:var(--teal-p);border-left:3px solid var(--teal);padding:5px 9px;border-radius:0 4px 4px 0;margin-bottom:3px;font-size:12px;line-height:1.6;}
+.apr{background:var(--gold-p);border-left:3px solid var(--gold);padding:5px 9px;border-radius:0 4px 4px 0;margin-bottom:3px;font-size:12px;line-height:1.6;}
+.ac{background:var(--mag-p);border-left:3px solid var(--mag);padding:5px 9px;border-radius:0 4px 4px 0;margin-bottom:3px;font-size:12px;line-height:1.6;}
+.al{font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:1px;opacity:.6;margin-bottom:2px;}
+.akey{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:14px;align-items:center;font-size:11px;color:var(--gm);}
+.ak{padding:2px 8px;border-radius:4px;font-size:10px;font-weight:700;}
+.ak-h{background:#fff3e0;color:#e65100;}.ak-p{background:#e8f5e9;color:var(--grn);}
+.ak-b{background:var(--teal-p);color:var(--teal);}.ak-pr{background:var(--gold-p);color:#8a7010;}.ak-c{background:var(--mag-p);color:var(--mag);}
+.si{display:flex;gap:11px;padding:11px;border-radius:8px;background:var(--mag-p);margin-bottom:9px;}
+.sx{color:var(--mag);font-size:15px;font-weight:800;flex-shrink:0;line-height:1.6;}
+.st{font-size:12px;line-height:1.6;}.st strong{color:var(--mag);}
+.abc{background:var(--wh);border-radius:10px;padding:17px;border:1px solid var(--bdr);margin-bottom:13px;}
+.abw{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--teal-l);margin-bottom:5px;}
+.abh{font-size:12px;color:var(--gm);margin-bottom:9px;font-style:italic;}
+.abv{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-bottom:7px;}
+.avr{background:var(--teal-p);border-radius:6px;padding:9px;font-size:12px;}
+.avl{font-weight:700;color:var(--teal);font-size:10px;letter-spacing:1px;margin-bottom:3px;}
+.abm{font-size:11px;color:var(--gm);margin-top:5px;}.abm strong{color:var(--char);}
+.alg{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:22px;}
+.akill{background:#fff0f0;border:1px solid #ffcdd2;border-radius:10px;padding:17px;}
+.aboost{background:var(--grn-p);border:1px solid #a5d6a7;border-radius:10px;padding:17px;}
+.att{font-weight:800;font-size:12px;text-transform:uppercase;letter-spacing:1px;margin-bottom:11px;}
+.akill .att{color:#c0392b;}.aboost .att{color:var(--grn);}
+.ait{display:flex;gap:9px;margin-bottom:9px;font-size:12px;align-items:flex-start;line-height:1.6;}
+.wl{font-size:11px;font-weight:700;color:var(--teal);letter-spacing:1.5px;text-transform:uppercase;margin:26px 0 11px;padding-bottom:5px;border-bottom:1px solid var(--bdr);}
+.cg{display:grid;grid-template-columns:repeat(5,1fr);gap:11px;margin-bottom:6px;}
+.cdh{font-size:10px;font-weight:700;text-align:center;letter-spacing:1px;text-transform:uppercase;color:var(--teal);padding-bottom:5px;border-bottom:2px solid var(--teal);margin-bottom:7px;}
+.cp{background:var(--wh);border-radius:8px;padding:13px;box-shadow:0 1px 5px rgba(0,0,0,.06);border:1px solid var(--bdr);font-size:12px;line-height:1.6;}
+.cp.reel{opacity:.5;border-style:dashed;text-align:center;display:flex;align-items:center;justify-content:center;flex-direction:column;min-height:85px;}
+.cp.closed{opacity:.2;background:var(--gl);display:flex;align-items:center;justify-content:center;text-align:center;font-size:11px;color:var(--gm);min-height:55px;border-radius:8px;}
+.pd{font-size:10px;font-weight:700;color:var(--char);margin-bottom:5px;}
+.pb{display:inline-block;padding:2px 7px;border-radius:10px;font-size:10px;font-weight:700;margin-bottom:5px;}
+.bt{background:var(--teal-p);color:var(--teal);}.bc{background:var(--mag-p);color:var(--mag);}
+.blm{background:#fff3e0;color:#c47a00;}.br{background:var(--gl);color:var(--gm);}.bbr{background:#f3e5f5;color:#7b1fa2;}
+.pg{font-size:10px;color:var(--teal-l);margin-top:3px;font-style:italic;}
+.gdir{background:var(--gold-p);border-radius:6px;padding:7px 9px;font-size:11px;margin-top:7px;}
+.gdl{font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:#8a7010;margin-bottom:2px;}
+.sdir{background:var(--teal-p);border-radius:6px;padding:9px 11px;font-size:11px;margin-top:7px;}
+.sdl{font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:var(--teal);margin-bottom:3px;}
+.sli{padding:2px 0;border-bottom:1px solid rgba(6,87,98,.1);font-size:11px;}.sli:last-child{border-bottom:none;}
+.bdir{background:#f3e5f5;border-radius:6px;padding:7px 9px;font-size:11px;margin-top:7px;}
+.bdl{font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:#7b1fa2;margin-bottom:2px;}
+.er{background:var(--teal-d);border-radius:10px;padding:19px 22px;color:var(--wh);margin-top:22px;}
+.er h3{font-family:'Cormorant Garamond',serif;font-size:17px;color:var(--gold);margin-bottom:13px;}
+.eri{display:flex;gap:9px;margin-bottom:9px;font-size:12px;line-height:1.6;}.eri strong{color:var(--gold);}
+.wb{background:rgba(255,255,255,.08);border-radius:8px;padding:13px;margin-top:11px;}
+.wbt{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--gold);margin-bottom:7px;}
+.wbi{font-size:11px;padding:2px 0;display:flex;gap:7px;}.wbi::before{content:"\2192";color:var(--gold);}
+.rp{background:var(--wh);border-radius:10px;padding:20px;border:1px solid var(--bdr);margin-bottom:14px;box-shadow:var(--sh);}
+.rph{display:flex;align-items:center;gap:15px;margin-bottom:13px;}
+.rpn{background:var(--teal-d);color:var(--gold);font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:700;width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.rpm h3{font-family:'Cormorant Garamond',serif;font-size:19px;color:var(--teal-d);font-weight:700;}
+.rpm .rpper{font-size:11px;color:var(--gm);}
+.rpg{display:grid;grid-template-columns:repeat(auto-fit,minmax(175px,1fr));gap:9px;}
+.rpgi{background:var(--teal-p);border-radius:6px;padding:9px 11px;font-size:12px;}
+.rpgi strong{display:block;color:var(--teal-d);margin-bottom:2px;font-size:10px;text-transform:uppercase;letter-spacing:.8px;}
+.tgr{display:grid;grid-template-columns:repeat(3,1fr);gap:11px;margin-bottom:22px;}
+.tcard{border-radius:8px;padding:13px;font-size:12px;line-height:1.7;}
+.tcard.green{background:var(--grn-p);border:1px solid var(--grn);}
+.tcard.yellow{background:#fffde7;border:1px solid #f9c61f;}
+.tcard.red{background:#fce8e8;border:1px solid #c0392b;}
+.tlbl{font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:1px;margin-bottom:5px;}
+.tcard.green .tlbl{color:var(--grn);}.tcard.yellow .tlbl{color:#9a7900;}.tcard.red .tlbl{color:#c0392b;}
+.dcb{background:var(--wh);border-radius:10px;border:1px solid var(--bdr);padding:17px;margin-bottom:11px;}
+.dci{font-weight:700;color:var(--teal-d);font-size:12px;margin-bottom:7px;}
+.dct{font-size:12px;line-height:1.7;color:var(--gm);}.dct strong{color:var(--char);}
+.gf{background:linear-gradient(135deg,#fff0f0,var(--mag-p));border:2px solid var(--mag);border-radius:10px;padding:19px 22px;margin-bottom:22px;}
+.gft{display:flex;align-items:center;gap:9px;margin-bottom:9px;}
+.gft h3{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:700;color:var(--mag);}
+.gf p,.gf li{font-size:12px;line-height:1.8;}.gf ul{margin:7px 0 0 17px;}
+.gf li strong{color:var(--mag);}
+.swi{background:var(--wh);border-radius:8px;border:1px solid var(--bdr);padding:13px;margin-bottom:9px;}
+.swg{display:inline-flex;align-items:center;gap:7px;margin-bottom:7px;}
+.swh{font-size:13px;font-weight:700;color:var(--teal-d);margin-bottom:5px;border-left:3px solid var(--teal);padding-left:9px;}
+.sws{font-size:11px;color:var(--gm);font-style:italic;line-height:1.6;}
+.swn{font-size:11px;color:var(--mag);margin-top:5px;font-weight:600;}
+.lmc{background:var(--wh);border-radius:10px;padding:17px;border:1px solid var(--bdr);margin-bottom:11px;}
+.lmh{display:flex;justify-content:space-between;align-items:center;margin-bottom:9px;}
+.lmn{font-weight:700;font-size:13px;color:var(--teal-d);}
+.lms{font-size:10px;font-weight:700;padding:3px 9px;border-radius:20px;}
+.lml{background:var(--grn-p);color:var(--grn);}.lmt{background:var(--mag-p);color:var(--mag);}
+.lmm{display:flex;gap:18px;flex-wrap:wrap;margin-bottom:9px;}
+.lmv .v{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;color:var(--teal-d);line-height:1;}
+.lmv .lb{font-size:10px;color:var(--gm);text-transform:uppercase;letter-spacing:.8px;}
+.hg{display:grid;grid-template-columns:repeat(auto-fit,minmax(135px,1fr));gap:7px;}
+.ht{background:var(--teal-p);border-radius:20px;padding:4px 11px;font-size:11px;font-weight:600;color:var(--teal);text-align:center;}
+.ht.owned{background:var(--mag-p);color:var(--mag);}
+.htier{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--gm);margin:11px 0 5px;}
+.timg{display:grid;grid-template-columns:repeat(5,1fr);gap:9px;margin-bottom:22px;}
+.timc{background:var(--teal-p);border-radius:8px;padding:11px;text-align:center;}
+.timc.star{background:linear-gradient(135deg,var(--gold-p),#fff8dc);border:2px solid var(--gold);}
+.timd{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--teal);margin-bottom:3px;}
+.timc.star .timd{color:#8a7010;}
+.timv{font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:700;color:var(--teal-d);}
+.timn{font-size:10px;color:var(--gm);margin-top:2px;}
+.bh{background:linear-gradient(135deg,var(--teal-d),var(--teal) 60%,var(--teal-l));border-radius:13px;padding:30px;color:var(--wh);margin-bottom:22px;}
+.bh h2{font-family:'Cormorant Garamond',serif;font-size:27px;font-weight:700;margin-bottom:5px;}
+.bsub{font-size:12px;opacity:.8;margin-bottom:18px;}
+.bkpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+.bkpi{text-align:center;background:rgba(255,255,255,.1);border-radius:10px;padding:13px;}
+.bkpi .v{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:700;color:var(--gold);}
+.bkpi .l{font-size:10px;opacity:.8;text-transform:uppercase;letter-spacing:1px;margin-top:3px;}
+.bs{background:var(--wh);border-radius:10px;padding:21px;box-shadow:var(--sh);border:1px solid var(--bdr);margin-bottom:14px;}
+.bs h3{font-family:'Cormorant Garamond',serif;font-size:18px;color:var(--teal-d);margin-bottom:11px;}
+.bi{display:flex;gap:11px;margin-bottom:11px;font-size:12px;line-height:1.7;align-items:flex-start;}
+.dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;margin-top:5px;}
+.dot.tl{background:var(--teal);}.dot.mg{background:var(--mag);}.dot.gd{background:var(--gold);}.dot.gn{background:var(--grn);}
+.pc{background:var(--teal-d);border-radius:10px;padding:19px 22px;color:var(--wh);margin-bottom:14px;}
+.pc h3{font-family:'Cormorant Garamond',serif;font-size:18px;color:var(--gold);margin-bottom:13px;}
+.pi{display:flex;gap:11px;margin-bottom:9px;font-size:12px;line-height:1.6;}
+.pn{background:var(--gold);color:var(--char);width:21px;height:21px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:11px;flex-shrink:0;margin-top:1px;}
+.np{background:linear-gradient(135deg,var(--mag),var(--mag-l));border-radius:12px;padding:20px 24px;color:var(--wh);margin-bottom:22px;}
+.np h3{font-family:'Cormorant Garamond',serif;font-size:19px;color:var(--wh);margin-bottom:13px;}
+.npi{display:flex;gap:11px;margin-bottom:9px;font-size:12px;line-height:1.6;}
+.npn{background:rgba(255,255,255,.25);width:23px;height:23px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:11px;flex-shrink:0;}
+.ch{color:var(--mag);font-weight:700;}.cdm{color:var(--gm);}
+.trow{display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px solid var(--bdr);font-size:12px;}.trow:last-child{border-bottom:none;}
+.tv{font-weight:700;color:var(--teal-d);}
+.mb22{margin-bottom:22px;}.mt22{margin-top:22px;}
+.lnote{background:#fff3e0;border:1px solid #ffc947;border-radius:7px;padding:11px 15px;margin-bottom:18px;font-size:12px;}
+.lnote strong{color:#c47a00;}
+.ftr{background:var(--teal-d);color:rgba(255,255,255,.6);padding:18px 40px;font-size:11px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:7px;}
+.ftr strong{color:var(--wh);}.ftr a{color:var(--gold);text-decoration:none;}
+
+.sn-section{background:var(--wh);border-radius:10px;padding:22px;box-shadow:var(--sh);border:1px solid var(--bdr);margin-bottom:18px;}
+.sn-section h3{font-family:'Cormorant Garamond',serif;font-size:19px;color:var(--teal-d);margin-bottom:14px;font-weight:700;}
+.sn-item{display:flex;gap:13px;margin-bottom:13px;font-size:12px;line-height:1.7;align-items:flex-start;}
+.sn-icon{font-size:16px;flex-shrink:0;margin-top:1px;}
+.sn-hero{background:linear-gradient(135deg,var(--teal-d),var(--teal));border-radius:13px;padding:28px 32px;color:var(--wh);margin-bottom:22px;}
+.sn-hero h2{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:700;margin-bottom:6px;}
+.sn-hero p{font-size:12px;opacity:.85;line-height:1.7;}
+.sn-call{background:var(--mag-p);border-left:3px solid var(--mag);border-radius:0 8px 8px 0;padding:12px 15px;margin-top:4px;margin-bottom:4px;font-size:12px;line-height:1.7;}
+.sn-call strong{color:var(--mag);}
+.sn-watch{background:var(--gold-p);border-left:3px solid var(--gold);border-radius:0 8px 8px 0;padding:12px 15px;margin-top:4px;margin-bottom:4px;font-size:12px;line-height:1.7;}
+.sn-watch strong{color:#8a7010;}
+.sn-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:18px;}
+.sn-card{border-radius:9px;padding:16px;font-size:12px;line-height:1.7;}
+.sn-card.teal{background:var(--teal-p);border:1px solid var(--teal-l);}
+.sn-card.mag{background:var(--mag-p);border:1px solid var(--mag-l);}
+.sn-card.gold{background:var(--gold-p);border:1px solid var(--gold);}
+.sn-card.grn{background:var(--grn-p);border:1px solid var(--grn);}
+.sn-card-title{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;}
+.sn-card.teal .sn-card-title{color:var(--teal-d);}
+.sn-card.mag .sn-card-title{color:var(--mag);}
+.sn-card.gold .sn-card-title{color:#8a7010;}
+.sn-card.grn .sn-card-title{color:var(--grn);}
+.horizon-row{display:flex;gap:14px;align-items:flex-start;padding:12px 0;border-bottom:1px solid var(--bdr);font-size:12px;line-height:1.7;}
+.horizon-row:last-child{border-bottom:none;}
+.horizon-month{font-weight:700;color:var(--teal-d);min-width:70px;font-size:11px;text-transform:uppercase;letter-spacing:1px;margin-top:2px;flex-shrink:0;}
+</style>
+</head>
+<body>
+<header class="hdr">
+  <div><h1>GirlFriday LinkedIn Intelligence Dashboard</h1><div class="tag">Monthly Strategy Guide — Social Media Manager Edition</div></div>
+  <div class="hdr-meta">
+    <div><strong>Period:</strong> Dec 29, 2025 – Mar 25, 2026</div>
+    <div><strong>Paused:</strong> Mar 25 — website overhaul</div>
+    <div><strong>Total Followers (Mar 30):</strong> 789</div>
+    <div><strong>Department:</strong> Marketing &amp; Social Strategy</div>
+    <div>girlfridaybusinesssolutions.com</div>
+  </div>
+</header>
+<div class="alert">
+  <span class="bdg">9x Benchmark</span>
+  <p>GirlFriday’s avg engagement rate is <strong>26.6%</strong>. The LinkedIn B2B organic benchmark is 2–5%. This page is performing at <strong>more than 9x industry standard</strong> driven by reactions and clicks — the metrics that actually signal audience interest.</p>
+</div>
+<nav class="nav">
+  <button class="tb active" onclick="show(&#39;analytics&#39;,this)">Analytics</button>
+  <button class="tb" onclick="show(&#39;strategy&#39;,this)">Strategy &amp; Action</button>
+  <button class="tb" onclick="show(&#39;calendar&#39;,this)">30-Day Calendar</button>
+  <button class="tb" onclick="show(&#39;roadmap&#39;,this)">90-Day Roadmap</button>
+  <button class="tb" onclick="show(&#39;strategist&#39;,this)">Strategist Notes</button>
+</nav><div class="pnl active" id="tab-analytics">
+<div class="sh"><h2>Period Performance</h2><span class="per">Dec 29, 2025 – Mar 25, 2026 • All figures verified against LinkedIn export</span></div>
+
+<div class="kg">
+  <div class="kc hl"><div class="kl">Avg Engagement Rate</div><div class="kv mag">26.6%</div><div class="ks">Benchmark 2–5% • <strong>9x above</strong></div></div>
+  <div class="kc tl"><div class="kl">Total Impressions</div><div class="kv">3,745</div><div class="ks">Organic only</div></div>
+  <div class="kc tl"><div class="kl">Total Clicks</div><div class="kv">524</div><div class="ks">Avg 7 per post</div></div>
+  <div class="kc"><div class="kl">Total Followers (Mar 30)</div><div class="kv">789</div><div class="ks">Growth via LinkedIn Navigator + auto-invite</div></div>
+  <div class="kc"><div class="kl">Total Posts</div><div class="kv">75</div><div class="ks">Dec 29 – Mar 25</div></div>
+  <div class="kc"><div class="kl">Total Reactions</div><div class="kv">267</div><div class="ks">Likes + all reactions</div></div>
+  
+  <div class="kc gl"><div class="kl">Peak Single Post</div><div class="kv gld">632</div><div class="ks">Feb 20 — PM handoff topic</div></div>
+  <div class="kc hl"><div class="kl">Peak Eng Rate</div><div class="kv mag">192.9%</div><div class="ks">Mar 6 — Think Bigger post</div></div>
+</div>
+
+<div class="tc">
+  <div class="cd"><div class="ct">Monthly Impressions</div><div class="cw"><canvas id="chartImp" width="859" height="195" style="display: block; box-sizing: border-box; height: 195px; width: 859px;"></canvas></div>
+    <div class="ib"><strong>What this means:</strong> January and February drove the bulk of impressions — Jan because posting volume jumped from 3 to 28 posts, Feb because the PM handoff post hit an algorithmic outlier at 632 impressions. March declined because posting paused Mar 25. The underlying trend is healthy. Sustained posting at 20+ posts per month is what drives impression volume on a page this size.</div>
+  </div>
+  <div class="cd"><div class="ct">Monthly New Followers</div><div class="cw"><canvas id="chartFol" width="859" height="195" style="display: block; box-sizing: border-box; height: 195px; width: 859px;"></canvas></div>
+    <div class="ib"><strong>What this means:</strong> GirlFriday’s follower growth is driven by LinkedIn Sales Navigator, connection outreach, and auto-invite — not by organic content reach. Content and follower acquisition are two separate engines. Content’s job is conversion: when someone lands on the page after a Navigator invite, the posts are what make them stay, trust the brand, and eventually reach out. The 789 follower count reflects the outreach strategy. The 26.6% engagement rate reflects the content.</div>
+  </div>
+</div>
+
+<div class="tc">
+  <div class="cd"><div class="ct">Monthly Clicks</div><div class="cw"><canvas id="chartClk" width="859" height="195" style="display: block; box-sizing: border-box; height: 195px; width: 859px;"></canvas></div>
+    <div class="ib"><strong>What this means:</strong> February generated 266 clicks — more than double January. The Feb 20 PM post alone drove 83 clicks. Clicks are the clearest signal of intent: someone who clicks wants to know more. That moment is exactly where the follow-up sequence converts intent into a conversation.</div>
+  </div>
+  <div class="cd"><div class="ct">Monthly Avg Engagement Rate</div><div class="cw"><canvas id="chartEng" width="859" height="195" style="display: block; box-sizing: border-box; height: 195px; width: 859px;"></canvas></div>
+    <div class="ib"><strong>What this means:</strong> March’s engagement rate is the highest of the period at 32% despite being the shortest posting window. Content quality is improving. The audience is responding more strongly to each post even as posting volume stayed consistent. This is the algorithm rewarding a page that has earned its audience’s trust.</div>
+  </div>
+</div>
+
+<div class="sh mt22"><h2>Content Format Performance</h2><span class="per">Text/Graphic vs. Video • Verified from Content Type column</span></div>
+<div class="tc mb22">
+  <div class="cd"><div class="ct">Format Comparison</div>
+    <div style="display:flex;justify-content:space-around;margin-bottom:14px;flex-wrap:wrap;gap:10px;">
+      <div style="text-align:center"><div style="font-family:&#39;Cormorant Garamond&#39;,serif;font-size:28px;font-weight:700;color:var(--teal-d)">53.4</div><div style="font-size:10px;text-transform:uppercase;letter-spacing:1px;color:var(--gm)">Avg Imp — Text/Graphic</div></div>
+      <div style="text-align:center"><div style="font-family:&#39;Cormorant Garamond&#39;,serif;font-size:28px;font-weight:700;color:var(--mag)">38.7</div><div style="font-size:10px;text-transform:uppercase;letter-spacing:1px;color:var(--gm)">Avg Imp — Video</div></div>
+      <div style="text-align:center"><div style="font-family:&#39;Cormorant Garamond&#39;,serif;font-size:28px;font-weight:700;color:var(--teal-d)">32%</div><div style="font-size:10px;text-transform:uppercase;letter-spacing:1px;color:var(--gm)">Avg Eng — Text/Graphic</div></div>
+      <div style="text-align:center"><div style="font-family:&#39;Cormorant Garamond&#39;,serif;font-size:28px;font-weight:700;color:var(--mag)">24%</div><div style="font-size:10px;text-transform:uppercase;letter-spacing:1px;color:var(--gm)">Avg Eng — Video</div></div>
+    </div>
+    <div class="ib mag"><strong>Read:</strong> Text and graphic posts outperform video on both impressions and engagement rate. This does not mean stop video — Takisha’s reels build brand trust text cannot replicate. It means written formula posts are the higher-converting format and should lead every week. Video supports; text converts.</div>
+  </div>
+  <div class="cd"><div class="ct">Hook Type Performance (Avg Eng Rate)</div><div class="cw"><canvas id="chartHook" width="859" height="195" style="display: block; box-sizing: border-box; height: 195px; width: 859px;"></canvas></div>
+    <div class="ib"><strong>Read:</strong> Revenue hooks (90.5% avg eng) and reframe hooks (38.7%) are the top two performers. Holiday and sentiment posts average 13.5% — the lowest category. The data validates the formula: reframe the belief, name the revenue or structural pain, and the audience responds.</div>
+  </div>
+</div>
+
+<div class="sh"><h2>Best Day to Post</h2><span class="per">Performance by day of week • Period total: 75 posts</span></div>
+<div class="cd mb22"><div class="ct">Day of Week: Avg Engagement Rate and Avg Clicks</div>
+  <div class="cw" style="height:210px"><canvas id="chartDow" width="792" height="210" style="display: block; box-sizing: border-box; height: 210px; width: 792px;"></canvas></div>
+  <div class="ib gld"><strong>Key finding:</strong> Friday is the single best-performing day at 42.6% avg engagement rate and 13.7 avg clicks — both highest of any day. 22 of 75 posts published on Fridays. Tuesday is the weakest at 14.7%. This pattern directly informs how the April calendar is structured and where highest-priority content lands each week.</div>
+</div>
+
+<div class="sh"><h2>Profile Visitor Analytics</h2><span class="per">Page views and unique visitors</span></div>
+<div class="thr">
+  <div class="kc tl"><div class="kl">Total Page Views</div><div class="kv">159</div></div>
+  <div class="kc tl"><div class="kl">Unique Visitors</div><div class="kv">99</div></div>
+  <div class="kc"><div class="kl">Pages/Visitor</div><div class="kv">1.6</div></div>
+</div>
+<div class="tc">
+  <div class="cd"><div class="ct">Monthly Visitors</div><div class="cw"><canvas id="chartVis" width="859" height="195" style="display: block; box-sizing: border-box; height: 195px; width: 859px;"></canvas></div>
+    <div class="ib"><strong>What this means:</strong> January had the highest visitor volume (71 views, 42 unique). March shows fewer total views but more unique visitors per view — meaning the people arriving are more intentional. Visitor volume tracks directly with posting frequency. When GirlFriday posts consistently, people come to check out the page.</div>
+  </div>
+  <div class="cd"><div class="ct">Visitor Seniority and Function</div>
+    <div class="htier">By Seniority (profile page visitors)</div>
+    <div class="db"><div class="dl"><span>Senior</span><span>47 views</span></div><div class="dbb"><div class="dbr" style="width:81%"></div></div></div>
+    <div class="db"><div class="dl"><span>CXO</span><span>11 views</span></div><div class="dbb"><div class="dbr mag" style="width:19%"></div></div></div>
+    <div class="htier" style="margin-top:12px">By Job Function</div>
+    <div class="db"><div class="dl"><span>Business Development</span><span>39 views</span></div><div class="dbb"><div class="dbr" style="width:74%"></div></div></div>
+    <div class="db"><div class="dl"><span>Finance</span><span>14 views</span></div><div class="dbb"><div class="dbr mag" style="width:26%"></div></div></div>
+    <div class="ib" style="margin-top:11px"><strong>Read:</strong> Senior and CXO-level Business Development and Finance professionals are checking out GirlFriday’s page. These are buyers, not browsers. They arrived because a post resonated. The page is attracting the right people — the gap is converting that interest into a next step.</div>
+  </div>
+</div>
+
+<div class="sh mt22"><h2>Follower Quality</h2><span class="per">Seniority, function, industry, location, company size</span></div>
+<div class="thr">
+  <div class="kc hl"><div class="kl">Decision-Maker Followers</div><div class="kv mag">26.8%</div><div class="ks">CXO + Dir + Owner + VP + Partner = 184 of 686 tagged</div></div>
+  <div class="kc gl"><div class="kl">Top Location</div><div class="kv" style="font-size:22px">Nashville</div><div class="ks">100 followers — home market anchor</div></div>
+  <div class="kc tl"><div class="kl">Top Function</div><div class="kv" style="font-size:20px">Biz Dev</div><div class="ks">134 followers — buyer-adjacent</div></div>
+</div>
+<div class="tc mb22">
+  <div class="cd"><div class="ct">Follower Seniority</div>
+    <div class="db"><div class="dl"><span>Senior</span><span>233 (34%)</span></div><div class="dbb"><div class="dbr" style="width:100%"></div></div></div>
+    <div class="db"><div class="dl"><span>Entry</span><span>222 (32%)</span></div><div class="dbb"><div class="dbr" style="width:95%"></div></div></div>
+    <div class="db"><div class="dl"><span>CXO</span><span>54 (8%)</span></div><div class="dbb"><div class="dbr mag" style="width:23%"></div></div></div>
+    <div class="db"><div class="dl"><span>Director</span><span>49 (7%)</span></div><div class="dbb"><div class="dbr mag" style="width:21%"></div></div></div>
+    <div class="db"><div class="dl"><span>Owner</span><span>45 (7%)</span></div><div class="dbb"><div class="dbr gld" style="width:19%"></div></div></div>
+    <div class="db"><div class="dl"><span>VP</span><span>31 (5%)</span></div><div class="dbb"><div class="dbr mag" style="width:13%"></div></div></div>
+    <div class="ib"><strong>Decision-maker watch:</strong> 26.8% of seniority-tagged followers are decision-makers. Track this percentage monthly. If it rises with follower growth, audience quality is improving. If it falls, the content is attracting the wrong people.</div>
+  </div>
+  <div class="cd"><div class="ct">Top Industries and Company Sizes</div>
+    <div class="db"><div class="dl"><span>Real Estate</span><span>52</span></div><div class="dbb"><div class="dbr" style="width:100%"></div></div></div>
+    <div class="db"><div class="dl"><span>Hospitals / Health Care</span><span>32</span></div><div class="dbb"><div class="dbr" style="width:62%"></div></div></div>
+    <div class="db"><div class="dl"><span>IT Services / Consulting</span><span>25</span></div><div class="dbb"><div class="dbr mag" style="width:48%"></div></div></div>
+    <div class="db"><div class="dl"><span>Financial Services</span><span>25</span></div><div class="dbb"><div class="dbr mag" style="width:48%"></div></div></div>
+    <div class="htier" style="margin-top:11px">Company Size</div>
+    <div class="db"><div class="dl"><span>2–10 employees</span><span>109 (20%)</span></div><div class="dbb"><div class="dbr" style="width:100%"></div></div></div>
+    <div class="db"><div class="dl"><span>11–50 employees</span><span>108 (20%)</span></div><div class="dbb"><div class="dbr" style="width:99%"></div></div></div>
+    <div class="ib"><strong>Note:</strong> 40% of followers are in 2–50 person companies — GirlFriday’s primary ICA range. Content stays industry-agnostic (pain-point first) to protect reach across all sectors.</div>
+  </div>
+</div>
+
+<div class="sh"><h2>Competitor Pulse</h2><span class="per">Dec 30, 2025 – Mar 29, 2026</span></div>
+<div class="cd mb22" style="overflow-x:auto">
+  <table class="dt">
+    <thead><tr><th>Page</th><th>New Followers</th><th>Posts</th><th>Comments</th><th>Reactions</th><th>Rxn/Post</th><th>Signal</th></tr></thead>
+    <tbody>
+      <tr><td class="ch">BELAY</td><td>2,380</td><td>64</td><td>117</td><td>1,174</td><td>18.3</td><td>Aspirational benchmark. Established brand at scale.</td></tr>
+      <tr class="hlr"><td>GirlFriday Business Solutions</td><td><strong>177</strong></td><td><strong>75</strong></td><td><strong>36</strong></td><td><strong>267</strong></td><td>3.6</td><td>Most active poster. Note: comment volume is internal team engagement, not organic audience signal.</td></tr>
+      <tr><td>lapzo</td><td>712</td><td>34</td><td>4</td><td>280</td><td>8.2</td><td>Growing fast. Low comment depth — surface-level engagement.</td></tr>
+      <tr><td>LeadAngel</td><td>170</td><td>33</td><td>7</td><td>157</td><td>4.8</td><td>Similar follower size. Lower comment depth than GirlFriday.</td></tr>
+      <tr><td class="cdm">"Girl Friday" (unrelated)</td><td class="cdm">11</td><td class="cdm">10</td><td class="cdm">0</td><td class="cdm">36</td><td class="cdm">3.6</td><td class="cdm">Unrelated brand. Not a competitor.</td></tr>
+    </tbody>
+  </table>
+  <div class="ib"><strong>Strategic read:</strong> Follower growth comparisons here are not apples-to-apples — GirlFriday’s growth is Navigator and auto-invite driven; competitor methods are unknown. The meaningful comparison is content performance: GirlFriday posted more than any tracked competitor and its 26.6% engagement rate significantly outperforms B2B benchmarks. Watch click-through rate and profile visits from non-followers — those signal content is converting people who didn’t already know GirlFriday.</div>
+</div>
+
+<div class="sh"><h2>Lead Magnet Strategy</h2><span class="per">3 lead magnets built and ready — not yet promoted on LinkedIn</span></div>
+<div class="gf mb22">
+  <div class="gft"><h3>Important Clarification: Lead Magnets Are Ready But Not Yet Promoted</h3></div>
+  <p>GirlFriday has three lead magnets built, with landing pages, email sequences, and full delivery infrastructure already in place. <strong>None of these have been promoted as LinkedIn posts yet.</strong> The April calendar introduces them for the first time. There are no historical click or impression stats for these resources — that data will begin in April 2026.</p>
+  <ul>
+    <li><strong>PM Coordination Resource:</strong> Ready. April 10 is the first LinkedIn promotion.</li>
+    <li><strong>CRM Clarity Guide:</strong> Ready. April 17 is the first LinkedIn promotion.</li>
+    <li><strong>Sales Funnel Resource:</strong> Ready. April 24 is the first LinkedIn promotion.</li>
+  </ul>
+</div>
+<div class="cd mb22">
+  <div class="ct">Lead Magnet Comment Strategy — Recommended Approach</div>
+  <div style="font-size:12px;line-height:1.8;margin-bottom:12px">Since all three magnets already have landing pages, email sequences, and delivery built, the recommended LinkedIn strategy is:</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+    <div style="background:var(--teal-p);border-radius:8px;padding:14px">
+      <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--teal);margin-bottom:8px">Step 1 — Comment Trigger in Post</div>
+      <div style="font-size:12px;line-height:1.7">Include a specific trigger word in every magnet post: comment <strong>GUIDE</strong>, comment <strong>STRUCTURE</strong>, comment <strong>FUNNEL</strong>. When someone comments, they raise their hand as an interested, qualified prospect.</div>
+    </div>
+    <div style="background:var(--mag-p);border-radius:8px;padding:14px">
+      <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--mag);margin-bottom:8px">Step 2 — DM with Landing Page Link</div>
+      <div style="font-size:12px;line-height:1.7">Send a DM to every person who comments the trigger word with the link to the landing page. They opt in, enter the existing email sequence, and get the resource. This keeps the LinkedIn algorithm signal clean (no outbound link in the post itself) and puts a qualified opt-in between the comment and the download.</div>
+    </div>
+  </div>
+  <div class="ib" style="margin-top:12px"><strong>Why this approach:</strong> Putting the landing page link directly in the post caption suppresses organic reach by 40–60% (LinkedIn’s algorithm penalizes outbound links). The comment-to-DM method keeps the post distribution fully organic, generates a high-intent engagement signal, and routes the prospect into the existing funnel infrastructure GirlFriday already has built. This is how top-performing B2B pages run lead magnet campaigns on LinkedIn.</div>
+</div>
+
+</div>
+
+<div class="pnl" id="tab-strategy">
+
+<div class="np">
+  <h3>April 2026: 3 Strategic Directives from the Data</h3>
+  <div class="npi"><div class="npn">1</div><div>The sales funnel resource is the priority lead magnet for April. All three magnets are being promoted on LinkedIn for the first time ever. The sales funnel post gets the sharpest hook because revenue predictability is the pain the audience has already told us they care about most — the A+ posts confirmed it. April is the baseline month for all three. Every click gets tracked so May has something real to optimize against.</div></div>
+  <div class="npi"><div class="npn">2</div><div>The "Most X isn’t X" hook format is retired. It was working — and it’s now one of the most recognizable AI-generated content patterns on LinkedIn. The April posts open with scenes, declarative statements, and specific observations. The ICA identifies before they engage. Same strategic intent, no formula fingerprint.</div></div>
+  <div class="npi"><div class="npn">3</div><div>Every Friday in April is pre-scheduled with the highest-priority content. 42.6% avg engagement rate. 13.7 avg clicks. Think Bigger carousels and free value posts own Fridays. Trigger words are being held for May, where they’ll be tested against this month’s direct link baseline in a real A/B comparison.</div></div>
+</div>
+
+<div class="sh"><h2>LinkedIn Algorithm: How Reach Actually Works</h2><span class="per">Why some posts reach 600 people and others reach 15</span></div>
+<div class="alg">
+  <div class="akill">
+    <div class="att">What Kills Reach</div>
+    <div class="ait"><span>🔗</span><div><strong>Links early in the caption.</strong> LinkedIn penalizes outbound links by 40–60% reach. The scheduler-compatible solve: put the link at the very bottom of the caption, after hashtags, on its own line. The algorithm scans early content for links — burying it last reduces the penalty significantly without changing the workflow.</div></div>
+    <div class="ait"><span>✏️</span><div><strong>Editing after posting.</strong> The algorithm interprets an edit as a signal the post wasn’t ready and resets distribution to near zero. Proof before scheduling. No exceptions.</div></div>
+    <div class="ait"><span>⏱️</span><div><strong>Slow first-hour engagement.</strong> LinkedIn distributes to a small test group first. If that group engages quickly, distribution expands. If it’s slow, the post stalls. The first 60 minutes are the most critical window of any post’s life.</div></div>
+    <div class="ait"><span>🔁</span><div><strong>Repeating the same CTA language.</strong> The algorithm and the audience both tune out repeated patterns. Rotate CTA wording every post — variety signals fresh content.</div></div>
+    <div class="ait"><span>📅</span><div><strong>Inconsistent posting.</strong> A pause resets some distribution momentum. Always restart after a break with the strongest possible hook — not an easy post.</div></div>
+  </div>
+  <div class="aboost">
+    <div class="att">What Accelerates Reach</div>
+    <div class="ait"><span>💬</span><div><strong>Comment velocity in the first hour.</strong> Comments are the highest-weight signal the algorithm receives. A post that generates 3 comments in the first hour will outreach a post with 20 likes and no comments. Takisha, Kimmie, and Amy engaging in the first 15 minutes has a real and measurable effect on distribution.</div></div>
+    <div class="ait"><span>🔖</span><div><strong>Saves.</strong> When someone saves a post, LinkedIn flags it as high-value content. Saves are invisible in analytics but are a powerful reach multiplier. Framework posts and checklists earn saves. Thought leadership earns likes. Both matter for different reasons.</div></div>
+    <div class="ait"><span>🔄</span><div><strong>Shares from outside your network.</strong> When someone who doesn’t follow GirlFriday shares a post, LinkedIn expands distribution beyond the existing follower base. This is how the Feb 20 post reached 632 people. Free value carousels earn shares. Thought leadership earns reposts.</div></div>
+    <div class="ait"><span>⌛</span><div><strong>Dwell time.</strong> How long someone reads a post factors into distribution even without engaging. Multi-slide carousels and long-form posts increase dwell time significantly over short text posts.</div></div>
+    <div class="ait"><span>🏢</span><div><strong>Internal team engagement early.</strong> When Takisha, Kimmie, and Amy like or comment on a post within the first hour, it signals credibility to the algorithm. Three people engaging in the first 15 minutes can meaningfully expand the distribution window.</div></div>
+  </div>
+</div>
+
+<div class="sh"><h2>Post Scorecard</h2><span class="per">Key posts graded from Dec 29 – Mar 25 • A+ over 100% eng • A 40–99% or 150+ imp • B+ 25–39% • B 15–24% • C 8–14% • D under 8%</span></div>
+<div class="cd mb22" style="overflow-x:auto">
+<table class="dt">
+<thead><tr><th>Grade</th><th>Date</th><th>Opening Line</th><th>Imp</th><th>Eng%</th><th>Clk</th><th>The Lesson</th></tr></thead>
+<tbody>
+<tr><td><span class="gb gap">A+</span></td><td>03/06</td><td>Revenue growth is exciting. Sustainable revenue is strategic.</td><td>14</td><td>193%</td><td>26</td><td>Declarative contrast. Two short sentences. Elite click-to-impression ratio. This is the format to replicate — not a formula, a voice.</td></tr>
+<tr><td><span class="gb gap">A+</span></td><td>03/13</td><td>Revenue problems aren’t sales problems. They’re structure problems.</td><td>24</td><td>154%</td><td>36</td><td>36 clicks on 24 impressions. Every single person who saw this clicked. Hook precision, not reach volume.</td></tr>
+<tr><td><span class="gb gap">A+</span></td><td>02/07</td><td>Leaders are trying to solve today’s problems from inside yesterday’s constraints.</td><td>37</td><td>114%</td><td>38</td><td>38 clicks. Specific and visual. The audience could picture themselves. That self-recognition is the conversion mechanism.</td></tr>
+<tr><td><span class="gb ga">A</span><span class="otl">★4x</span></td><td>02/20</td><td>Projects don’t fall behind because people aren’t working hard. They fall behind because no one owns the handoffs.</td><td>632</td><td>14%</td><td>83</td><td>Algorithmic outlier. 4x avg impressions. 83 clicks. PM handoff topic unlocked a distribution pool nothing else touched. Run this angle again in April.</td></tr>
+<tr><td><span class="gb ga">A</span></td><td>03/20</td><td>There’s a version of your business that runs at the level it was actually built for.</td><td>32</td><td>84%</td><td>24</td><td>Aspirational and specific. 24 clicks from 32 impressions. This is what Think Bigger posts should always sound like — possibility, not features.</td></tr>
+<tr><td><span class="gb ga">A</span></td><td>01/30</td><td>Growing businesses do the hard part. What they don’t always build is the infrastructure that makes it compound.</td><td>33</td><td>67%</td><td>20</td><td>Acknowledges the ICA’s effort before naming the gap. This structure earns trust before it earns clicks.</td></tr>
+<tr><td><span class="gb ga">A</span></td><td>01/09</td><td>Transformation in a business doesn’t happen by accident.</td><td>49</td><td>57%</td><td>22</td><td>Five words. Confident. Declarative. No formula. 22 clicks. A true statement the ICA couldn’t argue with.</td></tr>
+<tr><td><span class="gb gc">C</span></td><td>03/03</td><td>When support is working the way it should, everything feels easier.</td><td>17</td><td>12%</td><td>0</td><td>Zero clicks. Soft support language with no named problem. The ICA has no idea if this is about them. Retired permanently.</td></tr>
+<tr><td><span class="gb gd">D</span></td><td>02/03</td><td>The right support shows up when it matters most.</td><td>12</td><td>0%</td><td>0</td><td>Zero engagement. The lowest post of the period. Warm, vague, forgettable. Done.</td></tr>
+<tr><td><span class="gb gd">D</span></td><td>02/10</td><td>The kind of support that makes the biggest difference is rarely loud.</td><td>34</td><td>6%</td><td>1</td><td>Nice-sounding copy that connects to nothing the ICA is actively feeling. Doesn’t name a problem. Retired permanently.</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="sh"><h2>Proven Hook Swipe File</h2><span class="per">What worked — stripped to skeletons, rewritten without the formula fingerprint</span></div>
+<div class="mb22">
+  <div class="swi"><div class="swg"><span class="gb gap">A+</span><span style="font-size:11px;color:var(--gm)">193% eng • 26 clicks</span></div><div class="swh">"Revenue growth is exciting. Sustainable revenue is strategic."</div><div class="sws">Skeleton: [Thing everyone wants] is [positive word]. [Same thing done right] is [more powerful word]. Two short sentences. The contrast does the work with no formula framing. Use this for any outcome the ICA is chasing where GirlFriday offers the deeper, more deliberate version.</div><div class="swn">Adapt for: Think Bigger, revenue architecture, any "you’re chasing the wrong version of this" angle</div></div>
+
+  <div class="swi"><div class="swg"><span class="gb gap">A+</span><span style="font-size:11px;color:var(--gm)">114% eng • 38 clicks</span></div><div class="swh">"Leaders are trying to solve today’s problems from inside yesterday’s constraints."</div><div class="sws">Skeleton: [Audience] is trying to [goal] from inside [outdated thing]. It’s a scene. No "Most." No comparison structure. The reader either recognizes themselves immediately or they don’t — and the ones who do click. Self-recognition converts better than intellectual agreement.</div><div class="swn">Adapt for: Scaling, founder bottleneck, operational debt, "you’ve outgrown your setup" topic</div></div>
+
+  <div class="swi"><div class="swg"><span class="gb ga">A</span><span class="otl">★4x reach</span><span style="font-size:11px;color:var(--gm);margin-left:4px">632 imp • 83 clicks</span></div><div class="swh">"Projects fall behind in the gaps. Not when the work is happening — when it’s supposed to move from one person to the next."</div><div class="sws">Skeleton: [Problem] happens in [specific location]. Not when [expected moment] — when [unexpected, specific moment]. Specificity is the entire hook. Run the PM handoff angle again in April — it has the most reach potential of any topic in the dataset and the audience hasn’t seen it recently.</div><div class="swn">Adapt for: PM magnet, operations, team coordination, execution gaps</div></div>
+
+  <div class="swi"><div class="swg"><span class="gb ga">A</span><span style="font-size:11px;color:var(--gm)">84% eng • 24 clicks</span></div><div class="swh">"There’s a version of your business that runs at the level it was actually built for."</div><div class="sws">Skeleton: "There’s a version of your [thing] that [does what it was always supposed to do]." Aspirational and grounded. The word "actually" carries enormous weight — it implies the current version is underperforming its own potential. Doesn’t promise a fantasy. Promises something the ICA already believes should be possible.</div><div class="swn">Adapt for: Think Bigger, any post about unlocking what’s already there</div></div>
+
+  <div class="swi"><div class="swg"><span class="gb ga">A</span><span style="font-size:11px;color:var(--gm)">57% eng • 22 clicks</span></div><div class="swh">"Transformation in a business doesn’t happen by accident."</div><div class="sws">Skeleton: [Outcome everyone wants] doesn’t happen by [easy/passive thing]. Five words. No hedging. No formula. The hook earns the read by saying something true and slightly uncomfortable. The next line tells them what it actually takes — and that’s where GirlFriday enters.</div><div class="swn">Adapt for: Positioning posts, brand authority, any topic where intentionality is the differentiator</div></div>
+</div>
+
+<div class="sh"><h2>What Worked / What Didn’t</h2><span class="per">Running log — carries forward every month, never deleted</span></div>
+<div class="tc mb22">
+  <div style="background:var(--grn-p);border-left:3px solid var(--grn);border-radius:0 8px 8px 0;padding:13px 15px">
+    <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--grn);margin-bottom:9px">What Worked — Dec 29 to Mar 25, 2026</div>
+    <div style="font-size:12px;line-height:1.8"><strong>Declarative and scene-setting hooks.</strong> The highest-performing posts opened with a specific observation or contrast statement — not a formula. The A+ posts read like something a sharp strategist would say.<br><br><strong>PM handoff angle.</strong> Feb 20 reached 632 people — 4x the period average. This topic travels beyond the existing follower base. Run it again in April with a fresh approach.<br><br><strong>Revenue + structure framing.</strong> Connecting operational problems to revenue outcomes consistently outperformed posts that stayed in operations language alone.<br><br><strong>Short, confident declaratives.</strong> "Transformation doesn’t happen by accident." Five words. 57% engagement. The audience doesn’t need a long setup — they need something true said plainly and with conviction.</div>
+  </div>
+  <div style="background:var(--mag-p);border-left:3px solid var(--mag);border-radius:0 8px 8px 0;padding:13px 15px">
+    <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--mag);margin-bottom:9px">What Didn’t — Dec 29 to Mar 25, 2026</div>
+    <div style="font-size:12px;line-height:1.8"><strong>Soft support language.</strong> "The right support," "makes everything easier," "shows up when it matters" averaged D-range engagement in every instance. The ICA responds to named, specific pain — not abstract warmth.<br><br><strong>Gratitude-led testimonials.</strong> "We’re honored," "this means so much" earned C or D without exception. Lead with the client outcome.<br><br><strong>The "Most X isn’t X" formula.</strong> Was working in Q1. Now reads as templated and AI-generated to a savvy executive audience. Retired in April — replaced with specific observations and declarative statements.<br><br><strong>Posts with no link or CTA.</strong> Good content without a next step generates goodwill and no clicks. Every post needs a direction.</div>
+  </div>
+</div>
+
+<div class="fb">
+  <div class="ft">The Winning Post Formula (Updated April 2026)</div>
+  <div class="fs"><div class="fn">1</div><div class="fc"><strong>Open with a scene or a declarative statement.</strong> Put the reader inside a specific moment they recognize, or say something true that makes them stop. Not a formula. Example: "The pipeline looks healthy. The calls are happening. Revenue is still unpredictable month to month." They know this feeling. You’ve just described their Tuesday.</div></div>
+  <div class="fs"><div class="fn">2</div><div class="fc"><strong>Name the specific mechanism.</strong> Not "the problem is structure." Tell them exactly where it breaks. "The break is almost never at the top of the funnel — it’s in the middle, where the process takes over and the process was never documented."</div></div>
+  <div class="fs"><div class="fn">3</div><div class="fc"><strong>Bridge to GirlFriday without selling.</strong> One or two sentences. Not a pitch — a position. "GirlFriday comes in at exactly that point — not to evaluate the team, but to build the structure the team has been trying to operate without."</div></div>
+  <div class="fs"><div class="fn">4</div><div class="fc"><strong>Proof or stakes.</strong> A specific result or consequence that makes inaction cost something. Not hypothetical. Stakes beat inspiration every time.</div></div>
+  <div class="fs"><div class="fn">5</div><div class="fc"><strong>Rotating CTA + buried link.</strong> Vary CTA language every post. Then: hashtags. Then a blank line. Then the link on its own line at the very bottom. The algorithm sees the link last. The audience sees it when they’re already convinced.</div></div>
+</div>
+
+<div class="sh"><h2>Stop Doing</h2><span class="per">Data-verified — permanently retired</span></div>
+<div class="mb22">
+  <div class="si"><div class="sx">✕</div><div class="st"><strong>Gratitude-led testimonials.</strong> "We’re grateful," "we’re honored," "this means so much." Every post in this category landed C or below. Lead with the client outcome.</div></div>
+  <div class="si"><div class="sx">✕</div><div class="st"><strong>Soft support language.</strong> "The right support," "brings clarity," "makes everything easier." These don’t name a problem. The ICA can’t tell if the post is about them.</div></div>
+  <div class="si"><div class="sx">✕</div><div class="st"><strong>The "Most X isn’t X. It’s Y." formula.</strong> It was effective. It now signals AI-generated content to an executive audience. Replaced with declarative statements, scenes, and specific observations.</div></div>
+  <div class="si"><div class="sx">✕</div><div class="st"><strong>Recruiting posts in the strategic calendar.</strong> Both posts in the period ran D range. Wrong audience, wrong algorithm signal. Recruiting lives in a completely separate channel.</div></div>
+  <div class="si"><div class="sx">✕</div><div class="st"><strong>Posts with no CTA or link.</strong> If there is no next step, the ICA can only agree and scroll. Every post needs a direction, even a subtle one.</div></div>
+  <div class="si"><div class="sx">✕</div><div class="st"><strong>B-roll reels on Thursdays.</strong> Every Thursday post in the period was a video. Thursdays averaged 1.3 clicks — the lowest of any day. The b-roll format takes a link reach penalty and a video reach penalty simultaneously. Thursday slots are now carousels: same Canva workflow, same slide-by-slide words, export as PDF instead of video. Better distribution, less friction, no change to the production process.</div></div>
+</div>
+
+<div class="sh"><h2>A/B Test Rotation</h2><span class="per">4 tests in April. Results reviewed at May dashboard build. Trigger word test previewed for May.</span></div>
+<div class="mb22">
+  <div class="abc"><div class="abw">Week 1 (Apr 7–11) — Hook Format</div><div class="abh">Hypothesis: A scene-setting opening outperforms a declarative contrast hook because it creates immediate identification rather than intellectual agreement. Self-recognition converts faster than being told something is true.</div><div class="abv"><div class="avr"><div class="avl">Version A — Scene Opening</div>Drop the reader into a specific, recognizable situation. "Your team is working. The same problems keep landing on the same people." They identify before they engage.</div><div class="avr"><div class="avl">Version B — Declarative Contrast</div>Two short sentences. A truth and its more powerful version. "Revenue growth is exciting. Sustainable revenue is strategic." The contrast is the hook.</div></div><div class="abm">Watch: <strong>Engagement rate + link clicks.</strong> Scene hooks tend to generate more comments. Declarative hooks tend to generate more clicks. Both matter — for different reasons.</div></div>
+
+  <div class="abc"><div class="abw">Week 2 (Apr 14–18) — Post Length</div><div class="abh">Hypothesis: Long-form posts earn higher engagement rate because the ICA feels they received something of value. Short posts may earn more comments because there is space to respond. Apr 15 (long) vs Apr 22 (short) is the direct comparison.</div><div class="abv"><div class="avr"><div class="avl">Version A — Long (250+ words)</div>Full opening, pain, bridge, proof, CTA. Earn dwell time. Apr 15 is this version.</div><div class="avr"><div class="avl">Version B — Short (under 80 words)</div>Opening observation. One specific line. Link. Nothing else. Apr 22 is this version.</div></div><div class="abm">Watch: <strong>Engagement rate + comments on Apr 15 vs Apr 22.</strong> Same week, same topic range, opposite lengths. Clean comparison.</div></div>
+
+  <div class="abc"><div class="abw">Week 3 (Apr 21–25) — CTA Language</div><div class="abh">Hypothesis: A CTA that names the specific resource outcome outperforms a general site CTA because the ICA knows exactly what they’re clicking toward. Specificity reduces friction.</div><div class="abv"><div class="avr"><div class="avl">Version A — Resource-Specific</div>"Full funnel breakdown at girlfridaybusinesssolutions.com" — names what they’re getting.</div><div class="avr"><div class="avl">Version B — Site Direction</div>"See how GirlFriday approaches this: girlfridaybusinesssolutions.com" — names what they’re doing.</div></div><div class="abm">Watch: <strong>Clicks vs impressions ratio across the week.</strong> Informs which CTA framing to use for every lead magnet post in May.</div></div>
+
+  <div class="abc"><div class="abw">Week 4 (Apr 28–30) — Content Angle</div><div class="abh">Hypothesis: A post that gives away a specific framework earns more reach than one that argues a position, because saves and shares expand distribution beyond the follower base. Apr 18 carousel (free value) vs Apr 29 text post (thought leadership) is the comparison.</div><div class="abv"><div class="avr"><div class="avl">Version A — Free Value (Apr 18)</div>Give away something useful in the post itself. Watch: saves, shares, new follows.</div><div class="avr"><div class="avl">Version B — Thought Leadership (Apr 29)</div>Take a position. Make the argument. Watch: reposts, comments, profile visits.</div></div><div class="abm">Watch: <strong>Reposts + saves across both posts.</strong> This informs how May content is split between the two angles.</div></div>
+
+  <div class="abc" style="border:2px solid var(--mag-p)"><div class="abw" style="color:var(--mag)">May Preview — Trigger Words vs Direct Link Baseline</div><div class="abh">April establishes the clean baseline: strong hooks, direct links buried at the bottom. May introduces the trigger word mechanic on 2 posts specifically and compares downstream action against April’s data. This is how you test trigger words properly — with a real baseline, not a theory.</div><div class="abv"><div class="avr"><div class="avl">April Baseline (Now)</div>Link buried after hashtags. No trigger mechanic. Track: link clicks per impression across all lead magnet posts.</div><div class="avr"><div class="avl">May Test (Coming)</div>2 posts use trigger word CTA. Track: comments generated, DMs received, link clicks. Compare directly to April baseline.</div></div><div class="abm">Watch: <strong>Which drives more downstream action at this follower size.</strong> If trigger words move the needle meaningfully, they become a rotation. If they don’t, the question is settled with data.</div></div>
+</div>
+
+<div class="sh"><h2>Hashtag System</h2><span class="per">Max 3 per post. #GirlFridayBusinessSolutions always first. Come after body copy, before the link.</span></div>
+<div class="cd mb22">
+  <div class="htier">Always Required</div><div class="hg"><div class="ht owned">#GirlFridayBusinessSolutions</div></div>
+  <div class="htier">Broad (pick 1)</div><div class="hg"><div class="ht">#Leadership</div><div class="ht">#BusinessGrowth</div><div class="ht">#Entrepreneurship</div><div class="ht">#CEO</div></div>
+  <div class="htier">Mid-Niche (pick 1 when relevant)</div><div class="hg"><div class="ht">#OperationalExcellence</div><div class="ht">#BusinessOperations</div><div class="ht">#ScalingBusiness</div><div class="ht">#RevenueGrowth</div><div class="ht">#BusinessStrategy</div><div class="ht">#ProjectManagement</div></div>
+  <div class="htier">Owned (Think Bigger and anchor content only)</div><div class="hg"><div class="ht owned">#ThinkBigger</div><div class="ht owned">#FounderBottleneck</div><div class="ht owned">#OperationalClarity</div></div>
+  <div style="margin-top:14px;background:var(--teal-p);border-radius:8px;padding:12px 14px;font-size:12px;color:var(--teal-d)"><strong>Scheduler post structure:</strong> Body copy → CTA sentence → blank line → #Hashtags → blank line → Link on its own final line. Never put the link mid-caption or before hashtags.</div>
+</div>
+
+<div class="sh"><h2>Posting Schedule (EST)</h2><span class="per">No weekends. Friday pre-scheduled only — 42.6% avg engagement rate, best of any day.</span></div>
+<div class="timg">
+  <div class="timc"><div class="timd">Monday</div><div class="timv">9–10am</div><div class="timn">Takisha Reel</div></div>
+  <div class="timc"><div class="timd">Tuesday</div><div class="timv">8–9am</div><div class="timn">Text / Graphic</div></div>
+  <div class="timc"><div class="timd">Wednesday</div><div class="timv">9–10am</div><div class="timn">Takisha Reel</div></div>
+  <div class="timc"><div class="timd">Thursday</div><div class="timv">11am–12pm</div><div class="timn">Lead Magnet post</div></div>
+  <div class="timc star"><div class="timd">Friday ★ Best Day</div><div class="timv">10–11am</div><div class="timn">Pre-schedule only</div></div>
+</div>
+
+</div><div class="pnl" id="tab-calendar">
+<div class="sh"><h2>April 2026 Content Calendar</h2><span class="per">Apr 7–30 • Easter closure Apr 3–6 • Friday posts pre-scheduled</span></div>
+
+<div class="akey"><span>Post anatomy:</span><span class="ak ak-h">Hook</span><span class="ak ak-p">Pain</span><span class="ak ak-b">Bridge</span><span class="ak ak-pr">Proof</span><span class="ak ak-c">CTA</span></div>
+<div class="lnote"><strong>Link Policy (Scheduler-Friendly):</strong> Links go in the caption, buried after hashtags at the very bottom. Format: Body copy → CTA → Hashtags → [blank line] → Link on its own line. The algorithm scans early content for links — this placement minimizes the reach penalty while keeping your scheduler workflow intact.</div>
+
+<div class="wl">Week 1 — Apr 7 to 11</div>
+<div class="cg">
+  <div>
+    <div class="cdh">Mon Apr 7</div>
+    <div class="cp reel"><span class="pb br">Takisha Reel</span><div style="font-size:11px;color:var(--gm);margin-top:5px">Pre-recorded. Publish as-is 9–10am.</div></div>
+  </div>
+  <div>
+    <div class="cdh">Tue Apr 8</div>
+    <div class="cp">
+      <div class="pd">Apr 8 • 8–9am EST</div><span class="pb bt">Text Post</span>
+      <div class="ah"><div class="al">Hook</div>The team is working hard. The leader is still the one holding everything together. That gap has a name — and it isn’t a people problem.</div>
+      <div class="ap"><div class="al">Pain</div>When the same fires keep happening — missed handoffs, inconsistent delivery, team members working around each other — it isn’t because the wrong people were hired. It’s because the process underneath them was never built to distribute the work clearly.</div>
+      <div class="ab2"><div class="al">Bridge</div>GirlFriday doesn’t come in to evaluate the team. We come in to build the structure that lets the team operate the way the business always needed them to.</div>
+      <div class="apr"><div class="al">Proof</div>That’s the work. And it changes everything — not in theory, but in the first 30 days.</div>
+      <div class="ac"><div class="al">CTA</div>If this is the gap in your business right now, we’d love to show you how we close it.
+
+girlfridaybusinesssolutions.com</div>
+      <div style="font-size:10px;color:var(--gm);margin-top:4px">#GirlFridayBusinessSolutions #OperationalExcellence #BusinessSystems</div>
+      <div class="gdir"><div class="gdl">Graphic Direction</div>Dark teal bg (#033d47). White headline: "The problem isn’t your people." Magenta subline: "It’s the process they’re working inside." GirlFriday logo bottom right. Clean, minimal.</div>
+      <div class="pg">Goal: Lead magnet trigger. First post back after Easter. Strong scene-hook, link at bottom. Sets the tone for April.</div>
+    </div>
+  </div>
+  <div>
+    <div class="cdh">Wed Apr 9</div>
+    <div class="cp reel"><span class="pb br">Takisha Reel</span><div style="font-size:11px;color:var(--gm);margin-top:5px">Pre-recorded. Publish as-is 9–10am.</div>
+<div style="background:rgba(6,87,98,0.08);border-radius:6px;padding:8px;margin-top:8px;text-align:left;">
+<div style="font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:var(--teal);margin-bottom:4px;">Takisha Reshare (Personal LinkedIn)</div>
+<div style="font-size:11px;color:var(--char);line-height:1.6;">Short 1–2 line personal statement in her CEO voice + one engagement question + tag @GirlFriday Business Solutions.<br><span style="color:var(--gm);font-style:italic">Example: "This one is worth watching if you’re leading a team right now. What’s the biggest thing slowing your team down? @GirlFriday Business Solutions"</span></div>
+</div></div>
+  </div>
+  <div>
+    <div class="cdh">Thu Apr 10</div>
+    <div class="cp">
+      <div class="pd">Apr 10 • 11am–12pm EST</div><span class="pb blm">Lead Magnet — PM</span> <span class="pb bc">B-roll Reel or Carousel</span>
+<div style="background:#fff3e0;border-radius:6px;padding:8px 10px;margin-bottom:8px;font-size:11px;"><strong style="color:#c47a00;">Format note:</strong> Thursday video reels avg 23.4% eng but only 1.3 avg clicks. Use whichever format is easiest to produce — but always include the direct link in the CTA. A carousel vs. reel comparison is planned for May.</div>
+      <div class="ah"><div class="al">Hook</div>Projects fall behind in the white space — the moment between one person finishing and the next person knowing it’s their turn.</div>
+      <div class="ap"><div class="al">Pain</div>Someone finishes their piece and assumes the next person knows it’s their turn. The next person doesn’t. Work sits. Timelines shift. The leader ends up chasing status updates instead of driving outcomes.</div>
+      <div class="ab2"><div class="al">Bridge</div>We built a resource that maps out exactly how to document handoffs so work moves without anyone holding it together manually.</div>
+      <div class="apr"><div class="al">Proof</div>It’s the same framework used in the first 30 days with every GirlFriday client.</div>
+      <div class="ac"><div class="al">CTA</div>Grab it at girlfridaybusinesssolutions.com — it’s free and takes under 10 minutes to implement.</div>
+      <div style="font-size:10px;color:var(--gm);margin-top:4px">#GirlFridayBusinessSolutions #ProjectManagement #OperationalClarity</div>
+      <div class="sdir"><div class="sdl">Carousel Slides (export as PDF from Canva)</div>
+<div class="sli"><strong>S1 (Hook):</strong> The handoff is where most projects fall behind.</div>
+<div class="sli"><strong>S2:</strong> Someone finishes their piece.</div>
+<div class="sli"><strong>S3:</strong> And assumes the next person knows it’s their turn.</div>
+<div class="sli"><strong>S4:</strong> They don’t.</div>
+<div class="sli"><strong>S5:</strong> Work sits. Timelines slip. Leaders chase status.</div>
+<div class="sli"><strong>S6:</strong> That’s not a people problem. It’s a handoff problem.</div>
+<div class="sli"><strong>S7:</strong> And it’s completely fixable.</div>
+<div class="sli"><strong>S8 (CTA):</strong> GirlFriday builds the system that keeps work moving. girlfridaybusinesssolutions.com + QR code</div>
+<div style="font-size:10px;color:var(--gm);margin-top:5px;font-style:italic">Design: Dark teal bg, white text, one line per slide. GirlFriday logo bottom right on every slide. Magenta accent on S1 and S8.</div></div>
+      <div class="pg">Goal: First-ever PM magnet LinkedIn post. Baseline click tracking starts here.</div>
+<div style="background:#f3e5f5;border-radius:6px;padding:10px 12px;font-size:11px;margin-top:8px;"><div style="font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:#7b1fa2;margin-bottom:6px;">B-roll Reel OR Carousel — Word-for-Word Slides</div><div style="padding:2px 0;border-bottom:1px solid rgba(123,31,162,0.15);font-size:11px"><strong>Slide 1 (Hook):</strong> Work falls behind in the handoff — not the doing.</div>
+<div style="padding:2px 0;border-bottom:1px solid rgba(123,31,162,0.15);font-size:11px"><strong>Slide 2:</strong> Someone finishes their piece.</div>
+<div style="padding:2px 0;border-bottom:1px solid rgba(123,31,162,0.15);font-size:11px"><strong>Slide 3:</strong> And assumes the next person knows it’s their turn.</div>
+<div style="padding:2px 0;border-bottom:1px solid rgba(123,31,162,0.15);font-size:11px"><strong>Slide 4:</strong> They don’t.</div>
+<div style="padding:2px 0;border-bottom:1px solid rgba(123,31,162,0.15);font-size:11px"><strong>Slide 5:</strong> Work sits. Timelines shift. Leaders chase updates.</div>
+<div style="padding:2px 0;border-bottom:1px solid rgba(123,31,162,0.15);font-size:11px"><strong>Slide 6:</strong> The fix isn’t working harder. It’s owning the handoff.</div>
+<div style="padding:2px 0;border-bottom:1px solid rgba(123,31,162,0.15);font-size:11px"><strong>Slide 7:</strong> GirlFriday builds the system that keeps work moving without anyone holding it together manually.</div>
+<div style="padding:2px 0;font-size:11px"><strong>Slide 8 (CTA):</strong> Get the free PM resource. girlfridaybusinesssolutions.com — Add logo + QR code.</div></div>
+    </div>
+  </div>
+  <div>
+    <div class="cdh">Fri Apr 11</div>
+    <div class="cp">
+      <div class="pd">Apr 11 • 10–11am EST • Pre-schedule</div><span class="pb bc">Think Bigger Carousel</span>
+      <div class="ah"><div class="al">Hook</div>Revenue feels unpredictable when every stage of the business is working — but none of them are connected. That’s not a performance problem. It’s an architecture problem.</div>
+      <div class="ap"><div class="al">Pain</div>The marketing generates interest. The sales calls are happening. But the revenue is still unpredictable. The bottleneck isn’t effort — it’s the architecture connecting every stage of your revenue from offer to delivery to renewal.</div>
+      <div class="ab2"><div class="al">Bridge</div>Think Bigger is the two-week intensive where we build that architecture with you: offer, client journey, team alignment, and a Revenue Expansion Roadmap that makes growth predictable.</div>
+      <div class="ac"><div class="al">CTA</div>See what the two weeks build: girlfridaybusinesssolutions.services/think_bigger_homepage</div>
+      <div style="font-size:10px;color:var(--gm);margin-top:4px">#GirlFridayBusinessSolutions #ThinkBigger #RevenueGrowth</div>
+      <div class="sdir"><div class="sdl">Carousel Slides</div><div class="sli">S1 (Cover): "Revenue growth is a system." — Teal bg, white text, GirlFriday logo</div><div class="sli">S2: "The 3 places revenue leaks without a system" — 3 bullet pain points</div><div class="sli">S3: "What a revenue architecture actually looks like" — simple 4-part list</div><div class="sli">S4: "What Think Bigger builds in 2 weeks" — 4 deliverables named</div><div class="sli">S5 (CTA): Think Bigger URL + CTA — Magenta bg, white text</div></div>
+      <div class="pg">Goal: Think Bigger awareness. Friday pre-schedule. Think Bigger carousel. Best slot of Week 1.</div>
+    </div>
+  </div>
+</div>
+
+<div class="wl">Week 2 — Apr 14 to 18</div>
+<div class="cg">
+  <div>
+    <div class="cdh">Mon Apr 14</div>
+    <div class="cp reel"><span class="pb br">Takisha Reel</span><div style="font-size:11px;color:var(--gm);margin-top:5px">Pre-recorded. Publish as-is 9–10am.</div></div>
+  </div>
+  <div>
+    <div class="cdh">Tue Apr 15</div>
+    <div class="cp">
+      <div class="pd">Apr 15 • 8–9am EST</div><span class="pb bt">Text Post — Long Form</span>
+      <div class="ah"><div class="al">Hook</div>The business is performing. The leader is still the decision point for everything. Those two things cannot coexist at the next level of growth.</div>
+      <div class="ap"><div class="al">Pain</div>Here is what understructured looks like in a business that is performing: The leader is always the decision point, even on things that shouldn’t require their input. The team is working hard, but the work is not compounding. Revenue is growing, but margin isn’t keeping pace. None of this is a talent problem. It is an infrastructure problem.</div>
+      <div class="ab2"><div class="al">Bridge</div>When GirlFriday comes into a business, we don’t audit the people. We audit the systems they are being asked to operate inside. And almost every time, the system is what’s failing them, not the team.</div>
+      <div class="apr"><div class="al">Proof</div>If the business is performing but not accelerating, that is almost always the reason. The structure hasn’t caught up to the growth.</div>
+      <div class="ac"><div class="al">CTA</div>Visit girlfridaybusinesssolutions.com to see exactly how we approach this in the first 30 days.</div>
+      <div style="font-size:10px;color:var(--gm);margin-top:4px">#GirlFridayBusinessSolutions #BusinessStrategy #ScalingBusiness</div>
+      <div class="pg">Goal: A/B test Wk2 — long form. Compare eng rate vs. short form on Apr 22.</div>
+    </div>
+  </div>
+  <div>
+    <div class="cdh">Wed Apr 16</div>
+    <div class="cp reel"><span class="pb br">Takisha Reel</span><div style="font-size:11px;color:var(--gm);margin-top:5px">Pre-recorded. Publish as-is 9–10am.</div>
+<div style="background:rgba(6,87,98,0.08);border-radius:6px;padding:8px;margin-top:8px;text-align:left;">
+<div style="font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:var(--teal);margin-bottom:4px;">Takisha Reshare (Personal LinkedIn)</div>
+<div style="font-size:11px;color:var(--char);line-height:1.6;">Short 1–2 line personal statement in her CEO voice + one engagement question + tag @GirlFriday Business Solutions.<br><span style="color:var(--gm);font-style:italic">Example: "This one is worth watching if you’re leading a team right now. What’s the biggest thing slowing your team down? @GirlFriday Business Solutions"</span></div>
+</div></div>
+  </div>
+  <div>
+    <div class="cdh">Thu Apr 17</div>
+    <div class="cp">
+      <div class="pd">Apr 17 • 11am–12pm EST</div><span class="pb blm">Lead Magnet — CRM</span> <span class="pb bc">B-roll Reel or Carousel</span>
+<div style="background:#fff3e0;border-radius:6px;padding:8px 10px;margin-bottom:8px;font-size:11px;"><strong style="color:#c47a00;">Format note:</strong> Thursday video reels avg 23.4% eng but only 1.3 avg clicks. Use whichever format is easiest to produce — but always include the direct link in the CTA. A carousel vs. reel comparison is planned for May.</div>
+      <div class="ah"><div class="al">Hook</div>You’ve switched CRMs. The same friction came with you. The tool was never the problem.</div>
+      <div class="ap"><div class="al">Pain</div>Most teams that replace their CRM replace it with the same problem in a new interface. Six months later, the same friction is back. The tool wasn’t the issue — the workflow underneath it was broken from the start.</div>
+      <div class="ab2"><div class="al">Bridge</div>We put together a guide that walks through how to audit what is actually breaking in a CRM workflow before spending another dollar on a new platform.</div>
+      <div class="apr"><div class="al">Proof</div>Most businesses that go through this audit realize the problem is in 2 or 3 specific handoff points — not the software.</div>
+      <div class="ac"><div class="al">CTA</div>Free CRM audit guide at girlfridaybusinesssolutions.com.</div>
+      <div style="font-size:10px;color:var(--gm);margin-top:4px">#GirlFridayBusinessSolutions #OperationalExcellence #BusinessOperations</div>
+      <div class="sdir"><div class="sdl">Carousel Slides (export as PDF from Canva)</div>
+<div class="sli"><strong>S1 (Hook):</strong> You’ve switched CRMs. The friction came with you.</div>
+<div class="sli"><strong>S2:</strong> The tool wasn’t the problem.</div>
+<div class="sli"><strong>S3:</strong> The process underneath it was broken from day one.</div>
+<div class="sli"><strong>S4:</strong> Most CRM failures happen in 2 or 3 specific handoff points.</div>
+<div class="sli"><strong>S5:</strong> Not the software. The workflow the software was supposed to support.</div>
+<div class="sli"><strong>S6:</strong> Before you switch again — audit the process.</div>
+<div class="sli"><strong>S7:</strong> We built a free guide that shows you exactly how.</div>
+<div class="sli"><strong>S8 (CTA):</strong> Grab it at girlfridaybusinesssolutions.com + QR code</div>
+<div style="font-size:10px;color:var(--gm);margin-top:5px;font-style:italic">Design: Dark teal bg, white text, one line per slide. Magenta accent on S1 and S8. GirlFriday logo bottom right.</div></div>
+      <div class="pg">Goal: First-ever CRM magnet post. Track link taps vs impressions.</div>
+<div style="background:#f3e5f5;border-radius:6px;padding:10px 12px;font-size:11px;margin-top:8px;"><div style="font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:#7b1fa2;margin-bottom:6px;">B-roll Reel OR Carousel — Word-for-Word Slides</div><div style="padding:2px 0;border-bottom:1px solid rgba(123,31,162,0.15);font-size:11px"><strong>Slide 1 (Hook):</strong> You didn’t break the CRM. The process did.</div>
+<div style="padding:2px 0;border-bottom:1px solid rgba(123,31,162,0.15);font-size:11px"><strong>Slide 2:</strong> Most teams replace the tool.</div>
+<div style="padding:2px 0;border-bottom:1px solid rgba(123,31,162,0.15);font-size:11px"><strong>Slide 3:</strong> And bring the same broken process with them.</div>
+<div style="padding:2px 0;border-bottom:1px solid rgba(123,31,162,0.15);font-size:11px"><strong>Slide 4:</strong> Six months later. Same friction. New interface.</div>
+<div style="padding:2px 0;border-bottom:1px solid rgba(123,31,162,0.15);font-size:11px"><strong>Slide 5:</strong> The problem was never the software.</div>
+<div style="padding:2px 0;border-bottom:1px solid rgba(123,31,162,0.15);font-size:11px"><strong>Slide 6:</strong> It was the workflow underneath it.</div>
+<div style="padding:2px 0;border-bottom:1px solid rgba(123,31,162,0.15);font-size:11px"><strong>Slide 7:</strong> GirlFriday audits what’s actually breaking before you spend another dollar on a new platform.</div>
+<div style="padding:2px 0;font-size:11px"><strong>Slide 8 (CTA):</strong> Get the free CRM audit guide. girlfridaybusinesssolutions.com — Add logo + QR code.</div></div>
+    </div>
+  </div>
+  <div>
+    <div class="cdh">Fri Apr 18</div>
+    <div class="cp">
+      <div class="pd">Apr 18 • 10–11am EST • Pre-schedule</div><span class="pb bc">Free Value Carousel</span>
+      <div class="ah"><div class="al">Hook</div>There’s a specific moment when growth stops feeling like momentum and starts feeling like weight. Here are the 5 signs it’s happening in your business — and what each one actually requires.</div>
+      <div class="ap"><div class="al">Pain</div>Growth is supposed to feel like momentum. But for many leaders, a certain level of growth starts to feel like turbulence — faster, but harder to steer. That is usually the moment the structure hasn’t caught up.</div>
+      <div class="ac"><div class="al">CTA</div>Save this post — share it with the leader on your team who needs to hear it. The full assessment framework is free at girlfridaybusinesssolutions.com.</div>
+      <div style="font-size:10px;color:var(--gm);margin-top:4px">#GirlFridayBusinessSolutions #BusinessGrowth #FounderBottleneck</div>
+      <div class="sdir"><div class="sdl">Carousel Slides</div><div class="sli">S1 (Cover): "5 signs your business has outgrown its structure" — Gold text on teal</div><div class="sli">S2: Sign 1 — Every decision still goes through the founder. Fix: decision rights framework.</div><div class="sli">S3: Sign 2 — The same problems keep coming back. Fix: root cause documentation.</div><div class="sli">S4: Sign 3 — New team members take 90+ days to produce. Fix: onboarding system.</div><div class="sli">S5: Sign 4 — Revenue growth isn’t reaching the bottom line. Fix: margin architecture review.</div><div class="sli">S6: Sign 5 — The leader can’t describe their own process clearly. Fix: workflow mapping.</div><div class="sli">S7 (CTA): "Get the full framework — girlfridaybusinesssolutions.com" — Magenta bg, white text</div></div>
+      <div class="pg">Goal: Free value post. Watch saves + reposts for A/B Wk4 comparison.</div>
+    </div>
+  </div>
+</div>
+
+<div class="wl">Week 3 — Apr 21 to 25</div>
+<div class="cg">
+  <div>
+    <div class="cdh">Mon Apr 21</div>
+    <div class="cp reel"><span class="pb br">Takisha Reel</span><div style="font-size:11px;color:var(--gm);margin-top:5px">Pre-recorded. Publish as-is 9–10am.</div></div>
+  </div>
+  <div>
+    <div class="cdh">Tue Apr 22</div>
+    <div class="cp">
+      <div class="pd">Apr 22 • 8–9am EST</div><span class="pb bt">Text Post — Short Form</span>
+      <div class="ah"><div class="al">Hook</div>Work stalls in the handoffs. Not because people aren’t capable — because no one documented who owns the next step.</div>
+      <div class="ap"><div class="al">Pain</div>Work stalls in the space between people. Someone finishes their piece and assumes the next person knows. The next person doesn’t. That’s where timelines die.</div>
+      <div class="ac"><div class="al">CTA</div>That clarity is engineerable. GirlFriday engineers it. If this is what the team is navigating right now, we’d love to talk.
+
+girlfridaybusinesssolutions.com</div>
+      <div style="font-size:10px;color:var(--gm);margin-top:4px">#GirlFridayBusinessSolutions #OperationalExcellence #Leadership</div>
+      <div class="pg">Goal: A/B test Wk2 — short form. Compare eng rate to Apr 15 long form.</div>
+    </div>
+  </div>
+  <div>
+    <div class="cdh">Wed Apr 23</div>
+    <div class="cp reel"><span class="pb br">Takisha Reel</span><div style="font-size:11px;color:var(--gm);margin-top:5px">Pre-recorded. Publish as-is 9–10am.</div>
+<div style="background:rgba(6,87,98,0.08);border-radius:6px;padding:8px;margin-top:8px;text-align:left;">
+<div style="font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:var(--teal);margin-bottom:4px;">Takisha Reshare (Personal LinkedIn)</div>
+<div style="font-size:11px;color:var(--char);line-height:1.6;">Short 1–2 line personal statement in her CEO voice + one engagement question + tag @GirlFriday Business Solutions.<br><span style="color:var(--gm);font-style:italic">Example: "This one is worth watching if you’re leading a team right now. What’s the biggest thing slowing your team down? @GirlFriday Business Solutions"</span></div>
+</div></div>
+  </div>
+  <div>
+    <div class="cdh">Thu Apr 24</div>
+    <div class="cp">
+      <div class="pd">Apr 24 • 11am–12pm EST</div><span class="pb blm">Lead Magnet — Sales Funnel</span> <span class="pb bc">B-roll Reel or Carousel</span>
+<div style="background:#fff3e0;border-radius:6px;padding:8px 10px;margin-bottom:8px;font-size:11px;"><strong style="color:#c47a00;">Format note:</strong> Thursday video reels avg 23.4% eng but only 1.3 avg clicks. Use whichever format is easiest to produce — but always include the direct link in the CTA. A carousel vs. reel comparison is planned for May.</div>
+      <div class="ah"><div class="al">Hook</div>The pipeline has leads. The close rate is inconsistent. The break isn’t at the top — it’s in the middle, where the process was supposed to take over and never did.</div>
+      <div class="ap"><div class="al">Pain</div>The funnel generates interest. The calls are happening. But the close rate is inconsistent and the revenue is still unpredictable. The break is almost never at the top of the funnel. It’s in the middle — where the process takes over and the process was never documented.</div>
+      <div class="ab2"><div class="al">Bridge</div>We built a resource that maps the stages where revenue leaks in most business funnels and what to close at each one.</div>
+      <div class="ac"><div class="al">CTA</div>The resource that maps exactly where revenue leaks in most funnels is free at girlfridaybusinesssolutions.com.</div>
+      <div style="font-size:10px;color:var(--gm);margin-top:4px">#GirlFridayBusinessSolutions #RevenueGrowth #BusinessStrategy</div>
+      <div class="sdir"><div class="sdl">Carousel Slides (export as PDF from Canva)</div>
+<div class="sli"><strong>S1 (Hook):</strong> The pipeline has leads. The close rate is inconsistent.</div>
+<div class="sli"><strong>S2:</strong> The leak isn’t at the top of the funnel.</div>
+<div class="sli"><strong>S3:</strong> It’s in the middle — where the process takes over.</div>
+<div class="sli"><strong>S4:</strong> And the process was never documented.</div>
+<div class="sli"><strong>S5:</strong> Most revenue funnels break in the same 7 places.</div>
+<div class="sli"><strong>S6:</strong> We mapped them. And what to close at each one.</div>
+<div class="sli"><strong>S7:</strong> It’s free. And it’s specific.</div>
+<div class="sli"><strong>S8 (CTA):</strong> Get the resource at girlfridaybusinesssolutions.com + QR code</div>
+<div style="font-size:10px;color:var(--gm);margin-top:5px;font-style:italic">Design: Dark teal bg, white text, one line per slide. Magenta on S1 and S8. GirlFriday logo bottom right.</div></div>
+      <div class="pg">Goal: Priority magnet for April. First-ever sales funnel post. This is the hook to nail.</div>
+<div style="background:#f3e5f5;border-radius:6px;padding:10px 12px;font-size:11px;margin-top:8px;"><div style="font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:#7b1fa2;margin-bottom:6px;">B-roll Reel OR Carousel — Word-for-Word Slides</div><div style="padding:2px 0;border-bottom:1px solid rgba(123,31,162,0.15);font-size:11px"><strong>Slide 1 (Hook):</strong> The pipeline isn’t the problem.</div>
+<div style="padding:2px 0;border-bottom:1px solid rgba(123,31,162,0.15);font-size:11px"><strong>Slide 2:</strong> The leads are there.</div>
+<div style="padding:2px 0;border-bottom:1px solid rgba(123,31,162,0.15);font-size:11px"><strong>Slide 3:</strong> The calls are happening.</div>
+<div style="padding:2px 0;border-bottom:1px solid rgba(123,31,162,0.15);font-size:11px"><strong>Slide 4:</strong> But the close rate is inconsistent.</div>
+<div style="padding:2px 0;border-bottom:1px solid rgba(123,31,162,0.15);font-size:11px"><strong>Slide 5:</strong> The break isn’t at the top of the funnel.</div>
+<div style="padding:2px 0;border-bottom:1px solid rgba(123,31,162,0.15);font-size:11px"><strong>Slide 6:</strong> It’s in the middle — where the process was supposed to take over.</div>
+<div style="padding:2px 0;border-bottom:1px solid rgba(123,31,162,0.15);font-size:11px"><strong>Slide 7:</strong> GirlFriday maps exactly where revenue leaks — and what to close at each stage.</div>
+<div style="padding:2px 0;font-size:11px"><strong>Slide 8 (CTA):</strong> Get the free Sales Funnel resource. girlfridaybusinesssolutions.com — Add logo + QR code.</div></div>
+    </div>
+  </div>
+  <div>
+    <div class="cdh">Fri Apr 25</div>
+    <div class="cp">
+      <div class="pd">Apr 25 • 10–11am EST • Pre-schedule</div><span class="pb bc">Think Bigger Carousel</span>
+      <div class="ah"><div class="al">Hook (A/B Wk3 — Reframe)</div>Your sales team is hitting their numbers. Revenue is still unpredictable. That’s a structure problem — and it has a very specific fix.</div>
+      <div class="ap"><div class="al">Pain</div>The sales team is doing their job. The marketing is running. But the revenue still doesn’t feel predictable. That’s usually not a people problem or a pipeline problem. It’s an architecture problem — and those don’t fix themselves with more activity.</div>
+      <div class="ab2"><div class="al">Bridge</div>Think Bigger is a two-week intensive where we build the architecture: premium offers, client experience, team alignment, and a Revenue Expansion Roadmap that makes growth predictable, not dependent on a strong quarter.</div>
+      <div class="ac"><div class="al">CTA</div>See what Think Bigger builds: girlfridaybusinesssolutions.services/think_bigger_homepage</div>
+      <div style="font-size:10px;color:var(--gm);margin-top:4px">#GirlFridayBusinessSolutions #ThinkBigger #RevenueGrowth</div>
+      <div class="sdir"><div class="sdl">Carousel Slides</div><div class="sli">S1: "Revenue architecture. Not revenue activity." — Teal bg, white text</div><div class="sli">S2: "Why revenue feels unpredictable even when the team is working" — 3 root causes</div><div class="sli">S3: "What revenue architecture is" — 4 components: offer, journey, team, roadmap</div><div class="sli">S4: "What Think Bigger builds in 2 focused weeks" — deliverables listed specifically</div><div class="sli">S5 (CTA): Think Bigger URL + explore CTA — Magenta bg</div></div>
+      <div class="pg">Goal: A/B test Wk3 — reframe hook. Compare eng vs. same topic with question hook.</div>
+    </div>
+  </div>
+</div>
+
+<div class="wl">Week 4 — Apr 28 to 30</div>
+<div class="cg">
+  <div>
+    <div class="cdh">Mon Apr 28</div>
+    <div class="cp reel"><span class="pb br">Takisha Reel</span><div style="font-size:11px;color:var(--gm);margin-top:5px">Pre-recorded. Publish as-is 9–10am.</div></div>
+  </div>
+  <div>
+    <div class="cdh">Tue Apr 29</div>
+    <div class="cp">
+      <div class="pd">Apr 29 • 8–9am EST</div><span class="pb bt">Text Post — Thought Leadership</span>
+      <div class="ah"><div class="al">Hook</div>At some point, working harder stops being the answer. The businesses that scale profitably figured out what to build instead.</div>
+      <div class="ap"><div class="al">Pain</div>Sustainable scale is not a discipline story. It is a design story. The businesses that grow profitably are not working longer hours — they have built systems that make the work compound instead of accumulate. The founder stops being the bottleneck not by delegating more tasks, but by distributing the decision-making infrastructure so the business can run at the level it was built for.</div>
+      <div class="ab2"><div class="al">Bridge</div>That’s the difference between a growing business and a scaling one. Growth adds more. Scale multiplies what’s already there.</div>
+      <div class="apr"><div class="al">Proof</div>GirlFriday builds the architecture for the second one.</div>
+      <div class="ac"><div class="al">CTA</div>If this is the direction the business is moving, visit girlfridaybusinesssolutions.com to see how we build it with you.</div>
+      <div style="font-size:10px;color:var(--gm);margin-top:4px">#GirlFridayBusinessSolutions #ScalingBusiness #BusinessStrategy</div>
+      <div class="pg">Goal: A/B test Wk4 — thought leadership. Compare reposts to Apr 18 free value carousel.</div>
+    </div>
+  </div>
+  <div>
+    <div class="cdh">Wed Apr 30</div>
+    <div class="cp reel"><span class="pb br">Takisha Reel</span><div style="font-size:11px;color:var(--gm);margin-top:5px">Pre-recorded. Publish as-is 9–10am. Closes April strong.</div></div>
+  </div>
+  <div>
+    <div class="cdh">Thu Apr 30</div>
+    <div class="cp closed">No additional Thu slot this week — calendar complete at 8 reels + 4 written + 3 LM + 4 Friday carousels</div>
+  </div>
+  <div>
+    <div class="cdh">Fri — No post</div>
+    <div class="cp closed">Apr 25 covers the Fri slot for Wk 3/4. No second Friday this week.</div>
+  </div>
+</div>
+
+<div class="er">
+  <h3>Engagement Rules + Pre/Post Publish Window</h3>
+  <div class="eri"><strong>Rule 1 — First 60 Minutes:</strong>&nbsp;Reply to every comment within the first hour. The algorithm uses early engagement velocity to determine how far the post distributes. One reply is not enough — engage every single comment.</div>
+  <div class="eri"><strong>Rule 2 — Engage Before Publishing:</strong>&nbsp;Comment on 3–5 posts from ideal clients or relevant accounts at least 30 minutes before going live. This warms up the algorithm and puts GirlFriday in the feeds of people most likely to engage.</div>
+  <div class="eri"><strong>Rule 3 — Never Edit After Posting:</strong>&nbsp;Editing resets algorithmic distribution to near zero. Proof the post before scheduling. No exceptions.</div>
+  <div class="wb">
+    <div class="wbt">Pre/Post Publish Checklist</div>
+    <div class="wbi">30 min before: Comment substantively on 3–5 ICA posts (not just likes)</div>
+    <div class="wbi">Post goes live: Confirm formatting, link, hashtags are correct</div>
+    <div class="wbi">0–15 min after: Takisha, Kimmie, and Amy each like from their personal accounts</div>
+    <div class="wbi">0–60 min after: Reply to every comment — even a "thanks!" keeps velocity alive</div>
+    <div class="wbi">60 min after: Do not touch the post again unless a comment needs moderation</div>
+  </div>
+</div>
+
+</div>
+<div class="pnl" id="tab-roadmap">
+<div class="sh"><h2>90-Day Roadmap</h2><span class="per">April – June 2026 • Updated from Period 1 actuals</span></div>
+
+<div class="rp"><div class="rph"><div class="rpn">01</div><div class="rpm"><h3>Foundation &amp; Fix</h3><div class="rpper">April 2026 — resumes Apr 7 after Easter closure</div></div></div>
+<div class="rpg"><div class="rpgi"><strong>Stop</strong>Retire all stop-doing formats. Zero gratitude-led, zero soft support language, zero recruiting posts.</div><div class="rpgi"><strong>Formula</strong>Every written post uses the 5-step winning formula. Reframe hook on every piece.</div><div class="rpgi"><strong>A/B Tests</strong>All 4 A/B tests run. Results logged in May dashboard build.</div><div class="rpgi"><strong>Lead Magnets</strong>All 3 on Thursdays. Follow-up sequence live before Apr 7. Comment-trigger on every magnet post.</div><div class="rpgi"><strong>Targets</strong>845+ total followers. 50+ avg impressions/post. At least 1 A+ post per week.</div></div>
+</div>
+
+<div class="rp"><div class="rph"><div class="rpn">02</div><div class="rpm"><h3>Amplify &amp; Test</h3><div class="rpper">May 2026</div></div></div>
+<div class="rpg"><div class="rpgi"><strong>Long-Form Weekly</strong>One 300+ word post per week. Build authority through depth.</div><div class="rpgi"><strong>Repurpose Top Posts</strong>Take April’s A+ posts and reframe the hook. Test whether topic or hook drove performance.</div><div class="rpgi"><strong>Lead Magnets</strong>Identify which of 3 magnets drives most comment-to-DM conversion. Double Thursday posts on top performer.</div><div class="rpgi"><strong>Friday Priority</strong>All 4 Friday posts in May = highest-priority content: carousels or Think Bigger only.</div><div class="rpgi"><strong>Targets</strong>935+ total followers. First 100-impression post. Avg eng rate holds above 20%.</div></div>
+</div>
+
+<div class="rp"><div class="rph"><div class="rpn">03</div><div class="rpm"><h3>Convert &amp; Scale</h3><div class="rpper">June 2026</div></div></div>
+<div class="rpg"><div class="rpgi"><strong>LinkedIn Newsletter</strong>Launch GirlFriday’s LinkedIn newsletter. One per month. Repurpose from top post series or blog content.</div><div class="rpgi"><strong>Comment Campaigns</strong>Run 2 posts designed to generate 10+ comments — debate-style questions rooted in real business tensions the ICA is actively navigating.</div><div class="rpgi"><strong>DM Tracking</strong>Track inbound DMs that reference a specific post, magnet, or trigger word.</div><div class="rpgi"><strong>Lead Attribution</strong>Track first LinkedIn-influenced proposal conversation. Even one is proof of funnel ROI.</div><div class="rpgi"><strong>Targets</strong>950+ total followers. Newsletter: 50+ subscribers in 30 days. 1 LinkedIn-attributed inbound conversation.</div></div>
+</div>
+
+<div class="sh mt22"><h2>Monthly Decision Tree</h2><span class="per">After each month’s data is in — what to do next based on what happened</span></div>
+<div class="tc mb22">
+  <div>
+    <div class="dcb" style="border-top:3px solid var(--grn)"><div class="dci">If April outperforms (Green: 60+ followers, 50+ avg impressions, 1+ A+ post/week)</div><div class="dct"><strong>Do this in May:</strong> Scale what’s working. Double down on the hook type that produced the A+ posts. Add a second Friday carousel. Repurpose the top 2 posts from April with new hooks. Do not change the formula — amplify it. Begin planning the LinkedIn newsletter for June.</div></div>
+    <div class="dcb" style="border-top:3px solid #f9c61f"><div class="dci">If April is mixed (Yellow: 30–59 followers, 20–49 avg impressions, no A+ posts)</div><div class="dct"><strong>Do this in May:</strong> Audit every post that scored C or D. Identify whether the failure was hook, pain, CTA, or timing. Run only proven hook types for the first two weeks of May. Add a second Thursday post to increase lead magnet exposure. Check whether the follow-up sequence is actually functioning.</div></div>
+    <div class="dcb" style="border-top:3px solid #c0392b"><div class="dci">If April underperforms (Red: under 30 followers, under 20 avg impressions, 2+ declining weeks)</div><div class="dct"><strong>Do this immediately:</strong> Stop posting for 48 hours. During that window, engage deeply on 10–15 ICA posts (comment substantively, not just likes). Return with only the highest-performing hook format from the swipe file — reframe hooks only. Do not test new formats during a red recovery period. Escalate to Kimmie for a content strategy review.</div></div>
+  </div>
+  <div>
+    <div class="dcb" style="border-top:3px solid var(--teal)"><div class="dci">If follower growth stalls but engagement stays high</div><div class="dct"><strong>This means:</strong> The content resonates but isn’t reaching new audiences. Fix: increase repost-worthy content (free value carousels, save-worthy frameworks). Ask 3–5 connections to share a strong post. Consider one paid boost on the highest-performing organic post.</div></div>
+    <div class="dcb" style="border-top:3px solid var(--teal)"><div class="dci">If impressions grow but engagement rate drops</div><div class="dct"><strong>This means:</strong> Posts are reaching new audiences who aren’t yet warm to GirlFriday. Fix: tighten pain-naming in the second and third lines. Ensure the bridge to GirlFriday is specific, not generic. Add a stronger proof point before the CTA.</div></div>
+    <div class="dcb" style="border-top:3px solid var(--mag)"><div class="dci">If clicks are high but no follow-up conversion (DMs, site visits, proposals)</div><div class="dct"><strong>This means:</strong> The funnel break is confirmed. The content is working. The follow-up sequence is not. Escalate immediately to Takisha. The sequence must be built — not improved, built from scratch if it doesn’t exist.</div></div>
+  </div>
+</div>
+
+<div class="sh"><h2>Weekly Tracking Thresholds</h2><span class="per">Review every Monday. Act immediately on Red.</span></div>
+<div class="tgr">
+  <div class="tcard green"><div class="tlbl">Green — On Track</div>15+ new followers/week<br>40+ avg impressions/post<br>At least 1 A or A+ post/week<br>Engagement rate above 20%<br>At least 1 comment trigger response</div>
+  <div class="tcard yellow"><div class="tlbl">Yellow — Watch</div>8–14 new followers/week<br>20–40 avg impressions/post<br>No A+ posts in 2 weeks<br>Engagement rate 10–20%<br>Zero comment triggers firing</div>
+  <div class="tcard red"><div class="tlbl">Red — Act Now</div>Under 8 followers/week<br>Under 20 avg impressions<br>2+ consecutive declining weeks<br>Engagement below 10%<br>No clicks on any post in a week</div>
+</div>
+
+<div class="sh"><h2>Monthly Targets</h2><span class="per">Baseline: 789 followers as of Mar 30, 2026</span></div>
+<div class="cd mb22">
+  <div class="trow"><span>April 2026</span><span class="tv">50+ avg imp/post • All 4 A/B tests completed • All 3 lead magnets promoted • Click baseline established per magnet</span></div>
+  <div class="trow"><span>May 2026</span><span class="tv">First 100-impression post • Top magnet identified • Trigger word A/B test vs. direct link • Long-form weekly running</span></div>
+  <div class="trow"><span>June 2026</span><span class="tv">Newsletter launched • 1 documented LinkedIn-originated inbound conversation • Content attribution tracking in CRM</span></div>
+</div>
+
+<div class="gf">
+  <div class="gft"><h3>Before April 7: Three Items Require Leadership Decision</h3></div>
+  <ul>
+    <li><strong>Follow-up sequence (Takisha + Kimmie):</strong> Define what happens within 24 hours of a comment trigger or magnet download. Kimmie writes. Amy sets up. Must be live by Apr 7.</li>
+    <li><strong>CRM lead tracking (Takisha):</strong> Confirm whether LinkedIn-originating conversations are tagged in the CRM. If not, assign an owner before April posting resumes.</li>
+    <li><strong>Reel bank (Takisha):</strong> Confirm how many reels are recorded for April. The calendar calls for 8 reel slots. If fewer than 8 are ready, flag which days need to convert to written posts.</li>
+  </ul>
+</div>
+
+</div>
+<div class="pnl" id="tab-strategist">
+
+<div class="sn-hero">
+  <h2>Strategist Notes — April 2026</h2>
+  <p>This is the thinking behind every decision in this month’s dashboard. Not just what the data says — why I’m making the calls I’m making, what I’m watching closely, and what I’m setting up for May and June. Read this before you start scheduling. It gives the strategy context you won’t get from the metrics alone.</p>
+</div>
+
+<div class="sh"><h2>The Two Engines Running Simultaneously</h2><span class="per">Why content metrics and follower metrics are never mixed in this dashboard</span></div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px;">
+  <div style="background:var(--teal-p);border-radius:10px;padding:18px;border-left:4px solid var(--teal);">
+    <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--teal);margin-bottom:10px;">Engine 1: LinkedIn Sales Navigator</div>
+    <div style="font-size:12px;line-height:1.7;"><strong>What it does:</strong> Drives follower acquisition through connection outreach, auto-invite, and Navigator prospecting. This is the top-of-funnel engine. GirlFriday’s 789 followers and all growth in the period is attributed here — not to organic content reach.<br><br><strong>How to measure it:</strong> Connection acceptance rate, new followers per week, Navigator outreach volume. Not engagement rate, not impressions.</div>
+  </div>
+  <div style="background:var(--mag-p);border-radius:10px;padding:18px;border-left:4px solid var(--mag);">
+    <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--mag);margin-bottom:10px;">Engine 2: Content Strategy</div>
+    <div style="font-size:12px;line-height:1.7;"><strong>What it does:</strong> Converts the people Navigator brings to the page. When someone lands after accepting a connection request or auto-invite, the content is what makes them stay, follow, trust the brand, and eventually reach out. The 26.6% engagement rate is this engine working.<br><br><strong>How to measure it:</strong> Impressions, engagement rate, clicks to the website and lead magnets, profile visits from non-followers. Never follower count.</div>
+  </div>
+</div>
+<div style="background:var(--teal-d);border-radius:10px;padding:16px 20px;color:var(--wh);margin-bottom:24px;font-size:12px;line-height:1.7;">
+  <strong style="color:var(--gold);">Why this matters for how you read the dashboard:</strong> Follower growth targets have been removed from the content metrics section. They belong to the Navigator strategy, which is separate. What this dashboard tracks is whether the content is converting the audience Navigator delivers — and right now, at 9x the LinkedIn B2B benchmark, it is.
+</div>
+<div class="sh"><h2>Why I Built April the Way I Did</h2><span class="per">The reasoning behind every major decision this month</span></div>
+
+<div class="sn-section">
+  <h3>On the lead magnets</h3>
+  <div class="sn-item"><span class="sn-icon">📋</span><div>All three magnets are built, live, and ready. None of them have ever been promoted on LinkedIn. April is their debut — and that is actually a significant strategic moment. GirlFriday is not announcing products that exist in a crowded market. It is introducing solutions to an audience that has been warmed up over three months of high-engagement content. The audience is primed. The timing is right.</div></div>
+  <div class="sn-item"><span class="sn-icon">🎯</span><div>I put the sales funnel resource on Thursday April 24 as the priority magnet for this month. Here’s why: revenue predictability is the pain that shows up most consistently in the A+ and A posts. "Revenue is unpredictable even when the team is executing" resonated at 154% and 193% engagement. The sales funnel resource speaks directly to that pain in a way the CRM guide and PM resource don’t. It’s the sharpest match between what the audience has already told us they care about and what the resource delivers.</div></div>
+  <div class="sn-item"><span class="sn-icon">📊</span><div>April is the baseline month for all three magnets. Every click, every link tap, every impression gets logged. May will have something real to compare against — which magnet generated the most action, which hook angle drove the most traffic, which CTA framing converted best. Without this baseline, May is guesswork. With it, May becomes optimization.</div></div>
+  <div class="sn-call"><strong>Watch in April:</strong> Which magnet post drives the highest click-to-impression ratio. That one gets doubled in May. The weakest gets a hook rewrite before it runs again.</div>
+</div>
+
+<div class="sn-section">
+  <h3>On retiring trigger words for now</h3>
+  <div class="sn-item"><span class="sn-icon">🤔</span><div>Trigger words work. They work well. But they work best when two conditions are true: the page has enough reach that strangers (not just followers) are seeing the post, and the brand has the infrastructure to respond consistently within hours. At 789 followers with primarily internal comment engagement in the current data, running trigger word CTAs in April would be asking Amy to manage a manual response system for a mechanic that hasn’t proven its volume yet on this page. That’s effort without evidence.</div></div>
+  <div class="sn-item"><span class="sn-icon">🧪</span><div>The smarter move is to establish April’s direct link performance as a clean baseline, then introduce trigger words on 2 posts in May and compare the downstream action directly. If trigger words on a page this size generate meaningfully more DMs, comments, and link visits than a buried direct link, they become a rotation. If they don’t, the data settles the question permanently and we don’t build infrastructure around something that isn’t moving the needle.</div></div>
+  <div class="sn-call"><strong>May test plan:</strong> 2 posts get trigger word CTAs. Everything else stays direct link. Compare: comments generated, DMs received, link clicks per post. Same topic range, same posting day, only the CTA mechanic changes.</div>
+</div>
+
+<div class="sn-section">
+  <h3>On retiring the "Most X isn’t X" hook format</h3>
+  <div class="sn-item"><span class="sn-icon">✍️</span><div>This was the right call and I’m glad it was flagged. That formula dominated LinkedIn content strategy for about 18 months and it still converts — but it now reads as AI-generated to a savvy executive audience. When the hook pattern is recognizable as a template, it removes the voice. And GirlFriday’s voice is what has been generating 9x benchmark engagement. The formula was never the asset. The specificity and truth behind it was.</div></div>
+  <div class="sn-item"><span class="sn-icon">💡</span><div>The April posts are rewritten as declarative statements and scene-setting observations. "Projects fall behind in the gaps. Not when the work is happening — when it’s supposed to move from one person to the next." Same reframe. No formula fingerprint. The ICA recognizes the scene before they engage with the argument. That self-recognition is actually a stronger conversion mechanism than intellectual agreement — and it’s harder to replicate at scale.</div></div>
+  <div class="sn-watch"><strong>Watch in April:</strong> Whether the declarative/scene hooks maintain the same engagement rates as the formula hooks did. If they perform equally or better, the formula is permanently retired. If there’s a meaningful drop, we may selectively bring back the reframe structure on specific post types where it still earns its place.</div>
+</div>
+
+<div class="sn-section">
+  <h3>On the link-in-caption question</h3>
+  <div class="sn-item"><span class="sn-icon">🔗</span><div>The algorithm link penalty is real but it is not binary. LinkedIn penalizes links that appear early in the caption — specifically in the first two or three lines that appear before "see more." Burying the link after hashtags at the very bottom of the post means the algorithm reads through the entire caption before it encounters the link. The penalty exists but it’s significantly reduced compared to a link in line two. This is the practical scheduler-compatible solve and it’s how most high-performing brand pages handle it.</div></div>
+  <div class="sn-item"><span class="sn-icon">📱</span><div>The format for every post in the scheduler: body copy, CTA sentence, blank line, hashtags, blank line, link on its own line. That structure is in the calendar for every post. Do not put the link anywhere else. Do not put it in the first comment unless the scheduler can do it automatically — manually adding it after posting is not a viable workflow and has no meaningful reach advantage over the buried-in-caption approach for a page at this follower size.</div></div>
+</div>
+
+<div class="sh mt22"><h2>What I’m Watching in April</h2><span class="per">The signals that will shape May’s strategy</span></div>
+<div class="sn-grid">
+  <div class="sn-card teal"><div class="sn-card-title">Lead Magnet Pull</div>Which of the three magnet posts generates the best click-to-impression ratio? That ratio tells me whether the hook matched the offer or whether the post built interest that didn’t convert. A high impression, low click rate means the hook worked but the CTA or the offer description didn’t. A low impression, high click rate means the hook was too narrow but the people who did see it were highly qualified.</div>
+  <div class="sn-card mag"><div class="sn-card-title">Hook Format Performance</div>The declarative and scene-setting hooks in April are replacing the "Most X isn’t X" formula. I’m watching whether the engagement rate holds, drops, or improves. If it holds or improves, the voice is stronger than the formula. If it drops, I need to understand why — was it the hook format, the topic, the day, or the CTA?</div>
+  <div class="sn-card gold"><div class="sn-card-title">Friday Performance</div>Friday confirmed as the best day at 42.6% eng rate. But April has pre-scheduled carousels on Fridays rather than text posts. Carousels typically earn more saves and shares but may have a lower engagement rate than text. I want to know: does the carousel format on Fridays hold the Friday premium, or does it normalize to a lower rate?</div>
+  <div class="sn-card grn"><div class="sn-card-title">Follower Growth Rate</div>789 as of today. March averaged 56 new followers in a partial month. April is a full posting month with stronger content. I want to see 65+ new followers in April. If growth stalls despite strong engagement, the content is resonating with the existing audience but not reaching new ones — which points to a distribution problem, not a content problem.</div>
+</div>
+
+<div class="sh"><h2>What I’m Building Toward</h2><span class="per">The 90-day arc from where we are to where we want to be</span></div>
+<div class="sn-section">
+  <div class="horizon-row"><div class="horizon-month">April</div><div>Establish the baseline. First-ever lead magnet posts. Clean hook performance data without the formula. Trigger word test queued for May. The goal is not to spike — it’s to set a clean data foundation that makes every future month smarter. Target: 854+ followers, 50+ avg impressions per post, at least one post that outperforms the period avg.</div></div>
+  <div class="horizon-row"><div class="horizon-month">May</div><div>Optimize from data. The best-performing magnet from April gets doubled. The trigger word A/B test runs. The weakest hook angle gets rewritten. If April shows that carousels on Fridays underperform text posts, Fridays shift back. If the sales funnel magnet dramatically outperforms the PM resource, the June calendar leads with revenue-architecture content on Thursdays exclusively. Every May decision is April’s data applied.</div></div>
+  <div class="horizon-row"><div class="horizon-month">June</div><div>Build the conversion layer. By June the page will have 90+ days of clean post-magnet data, a tested CTA mechanic, and a clear picture of which content angles drive the ICA to act rather than just engage. The June question is: how does GirlFriday take a warm, engaged, decision-maker audience and open a conversation? That might be a LinkedIn newsletter. It might be a DM sequence. It might be something the data in April and May reveals that we haven’t considered yet. I’ll know more then.</div></div>
+  <div class="horizon-row"><div class="horizon-month">The Bigger Picture</div><div>GirlFriday has built a page that performs at 9x the LinkedIn benchmark with fewer than 800 followers. That is genuinely unusual. The ICA is here. The content is working. The next 90 days is about building the infrastructure that converts that attention into conversations — not more content, better connections between the content and the business. When one LinkedIn post leads to a proposal conversation, the ROI of everything we’re doing becomes undeniable. That’s the goal.</div></div>
+</div>
+
+<div class="sh"><h2>The Thursday Format Decision</h2><span class="per">Why Thursdays shifted from b-roll reels to carousels</span></div>
+<div style="background:var(--wh);border-radius:10px;padding:18px 20px;border:1px solid var(--bdr);box-shadow:var(--sh);margin-bottom:24px;font-size:12px;line-height:1.8;">
+  <p style="margin-bottom:10px;">Every Thursday post in the period was a b-roll video reel. Thursdays averaged <strong>24.1 impressions and 1.3 clicks</strong> — the lowest click day of the week. When you look at the individual posts, none broke through. The format was working against the content.</p>
+  <p style="margin-bottom:10px;">Here’s why: b-roll reels on LinkedIn face two algorithmic penalties simultaneously. First, LinkedIn doesn’t prioritize video the way Instagram or TikTok does — video reach on company pages at this size is consistently lower than text or carousel. Second, when a link is added to the caption (which we need for the lead magnets), the link penalty stacks on top of the video penalty. Double hit, lowest-performing day.</p>
+  <p style="margin-bottom:10px;">The fix is simple and requires no change to the Canva workflow: <strong>build the same slides, export as PDF instead of video, post as a carousel.</strong> LinkedIn treats carousels as high dwell-time content because people swipe deliberately — each swipe is a signal of intent. Carousels consistently outperform video on company pages at this follower range.</p>
+  <p>The word-for-word slide text is now included in every Thursday calendar slot so the coworker building in Canva has exactly what to put on each slide.</p>
+</div>
+<div class="sh"><h2>What We Tested and Why We Retired It</h2><span class="per">Decisions made — and the reasoning behind them</span></div>
+<div style="background:var(--wh);border-radius:10px;padding:20px;border:1px solid var(--bdr);box-shadow:var(--sh);margin-bottom:24px;">
+  <div style="display:flex;gap:14px;align-items:flex-start;margin-bottom:16px;">
+    <div style="background:var(--teal-d);color:var(--gold);font-family:&#39;Cormorant Garamond&#39;,serif;font-size:18px;font-weight:700;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;">1</div>
+    <div>
+      <div style="font-weight:700;font-size:13px;color:var(--teal-d);margin-bottom:5px;">Cross-Posting: GirlFriday Page + Takisha Personal Reshare with Tag</div>
+      <div style="font-size:12px;line-height:1.7;color:var(--gm);">Current practice (1x weekly): post on the GirlFriday company page, then Takisha reshares to her personal profile and tags GirlFriday. This is worth keeping. A personal profile reshare carries more algorithmic weight than a comment because LinkedIn treats it as a real person amplifying content to their own network — some of whom may not follow the GirlFriday page yet. It won’t spike impressions dramatically at this stage, but it does two things: it extends the post’s reach into Takisha’s personal network, and it reinforces to the algorithm that the content has cross-account relevance. The earlier experiment of daily comment seeding (posting comments from Takisha’s account to manufacture engagement velocity) was retired because the algorithm at this follower size doesn’t respond to internal cycling. The weekly reshare is different — it’s a legitimate distribution mechanism. Keep it on the highest-performing post of each week, not a rotating default.</div>
+    </div>
+  </div>
+  <div style="display:flex;gap:14px;align-items:flex-start;">
+    <div style="background:var(--teal-d);color:var(--gold);font-family:&#39;Cormorant Garamond&#39;,serif;font-size:18px;font-weight:700;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;">2</div>
+    <div>
+      <div style="font-weight:700;font-size:13px;color:var(--teal-d);margin-bottom:5px;">Trigger Word CTAs (Comment STRUCTURE, Comment GUIDE)</div>
+      <div style="font-size:12px;line-height:1.7;color:var(--gm);">Not tested in the period but considered and removed from April before launch. Trigger words work on personal profiles with 5k+ followers where enough strangers see each post to generate real volume. On a company page at 789 followers, asking people to comment a keyword mostly means asking the team to do it — the same problem as comment seeding. The cleaner April approach is a direct link buried after the hashtags: no friction, no performance mechanic, just a clear path for someone who is actually interested. If May’s data shows the audience is large enough to make trigger words meaningful, we revisit. Until then, they stay out.</div>
+    </div>
+  </div>
+</div>
+<div class="sh"><h2>One Thing I’d Tell You Before You Schedule</h2></div>
+<div class="sn-section">
+  <div class="sn-item"><span class="sn-icon">💬</span><div>The most important 15 minutes of any post’s life happen after it goes live, not before. The content in this calendar is ready. The hooks are sharp. The copy is clean. But the thing that determines whether a post reaches 30 people or 300 is what happens in the first hour after you hit publish. Takisha, Kimmie, and Amy each liking the post within the first 15 minutes. Responding to every comment within the first hour. Engaging on ICA posts 30 minutes before the post goes live so GirlFriday is active in the feed when the new post lands. That is the highest-leverage action available — and it costs nothing except 15 minutes of attention at the right moment.</div></div>
+  <div class="sn-call"><strong>The rule:</strong> Great content + no first-hour engagement = 30 people. Good content + active first-hour engagement = 200+ people. The gap is not the writing. It’s the window.</div>
+</div>
+
+</div>
+<footer class="ftr">
+  <div><strong>GirlFriday Business Solutions, LLC</strong> — <a href="https://girlfridaybusinesssolutions.com/">girlfridaybusinesssolutions.com</a></div>
+  <div>Source: LinkedIn Export • Period: Dec 29, 2025 – Mar 25, 2026 • Rebuilt: March 31, 2026 • All figures verified against source data</div>
+</footer>
+
+<script>
+function show(id,btn){
+  document.querySelectorAll('.pnl').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.tb').forEach(b=>b.classList.remove('active'));
+  document.getElementById('tab-'+id).classList.add('active');
+  btn.classList.add('active');
+}
+const teal='#065762',tl='#2a8fa4',td='#033d47',mag='#cc007e',gold='#c8ac30',grn='#1a7a4a';
+const fo={family:'Montserrat',size:11};
+const baseScales={x:{ticks:{font:fo},grid:{display:false}},y:{ticks:{font:fo},grid:{color:'rgba(0,0,0,0.06)'},beginAtZero:true}};
+const base={responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{bodyFont:fo,titleFont:fo}},scales:baseScales};
+const months=['Dec 25','Jan 26','Feb 26','Mar 26'];
+new Chart(document.getElementById('chartImp'),{type:'bar',data:{labels:months,datasets:[{data:[87,1120,1627,911],backgroundColor:[teal,teal,mag,tl],borderRadius:6}]},options:base});
+new Chart(document.getElementById('chartFol'),{type:'bar',data:{labels:months,datasets:[{data:[5,52,52,56],backgroundColor:[teal,teal,teal,mag],borderRadius:6}]},options:base});
+new Chart(document.getElementById('chartClk'),{type:'line',data:{labels:months,datasets:[{data:[8,107,266,143],borderColor:mag,backgroundColor:'rgba(204,0,126,0.1)',borderWidth:2.5,pointBackgroundColor:mag,pointRadius:5,fill:true,tension:0.35}]},options:base});
+const engOpts=JSON.parse(JSON.stringify(base));
+engOpts.scales.y.ticks={font:fo,callback:function(v){return v+'%'}};
+new Chart(document.getElementById('chartEng'),{type:'line',data:{labels:months,datasets:[{data:[29.4,21.9,26.7,32.0],borderColor:gold,backgroundColor:'rgba(200,172,48,0.1)',borderWidth:2.5,pointBackgroundColor:gold,pointRadius:5,fill:true,tension:0.35}]},options:engOpts});
+new Chart(document.getElementById('chartVis'),{type:'bar',data:{labels:months,datasets:[{label:'Page Views',data:[4,71,51,33],backgroundColor:teal,borderRadius:4},{label:'Unique Visitors',data:[2,42,30,25],backgroundColor:tl,borderRadius:4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:true,labels:{font:fo,boxWidth:12}},tooltip:{bodyFont:fo,titleFont:fo}},scales:baseScales}});
+const hookOpts={responsive:true,maintainAspectRatio:false,indexAxis:'y',plugins:{legend:{display:false},tooltip:{bodyFont:fo,titleFont:fo}},scales:{x:{ticks:{font:fo,callback:function(v){return v+'%'}},grid:{color:'rgba(0,0,0,0.06)'},beginAtZero:true},y:{ticks:{font:{family:'Montserrat',size:10}},grid:{display:false}}}};
+new Chart(document.getElementById('chartHook'),{type:'bar',data:{labels:['Revenue','Aspirational','Reframe','Brand Story','Milestone','Situation','Direct Addr.','Holiday'],datasets:[{data:[90.5,84.4,38.7,34.9,29.2,24.2,21.6,13.5],backgroundColor:[mag,mag,teal,teal,tl,tl,'#4a9db5','#c0c0c0'],borderRadius:5}]},options:hookOpts});
+new Chart(document.getElementById('chartDow'),{type:'bar',data:{labels:['Monday','Tuesday','Wednesday','Thursday','Friday'],datasets:[{label:'Avg Eng Rate %',data:[20.9,14.7,27.1,22.5,42.6],backgroundColor:[teal,teal,teal,teal,gold],borderRadius:5,yAxisID:'y'},{label:'Avg Clicks',data:[3.7,1.8,3.1,1.3,13.7],backgroundColor:[tl+'88',tl+'88',tl+'88',tl+'88',mag+'88'],borderRadius:5,yAxisID:'y1'}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:true,labels:{font:fo,boxWidth:12}},tooltip:{bodyFont:fo,titleFont:fo}},scales:{x:{ticks:{font:fo},grid:{display:false}},y:{type:'linear',position:'left',ticks:{font:fo,callback:function(v){return v+'%'}},grid:{color:'rgba(0,0,0,0.06)'},beginAtZero:true},y1:{type:'linear',position:'right',ticks:{font:fo},grid:{display:false},beginAtZero:true}}}});
+</script>
+
+</body></html>
